@@ -100,7 +100,7 @@ export interface EducationItem {
   institution: string;
   period: string;
   location: string;
-  points: string[];
+  points?: string[];
 }
 
 export interface AICapability {

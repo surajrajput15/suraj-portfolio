@@ -138,17 +138,19 @@ export const CertificationsSection: React.FC<CertificationsSectionProps> = ({
                   </div>
                 </div>
 
-                <ul className="space-y-2 pt-3 border-t border-white/[0.04]">
-                  {edu.points.map((pt, pIdx) => (
-                    <li
-                      key={pIdx}
-                      className="flex items-start gap-2 text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal"
-                    >
-                      <CheckCircle2 className="w-3.5 h-3.5 text-zinc-400 shrink-0 mt-0.5" />
-                      <span>{pt}</span>
-                    </li>
-                  ))}
-                </ul>
+                {edu.points && edu.points.length > 0 && (
+                  <ul className="space-y-2 pt-3 border-t border-white/[0.04]">
+                    {edu.points.map((pt, pIdx) => (
+                      <li
+                        key={pIdx}
+                        className="flex items-start gap-2 text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal"
+                      >
+                        <CheckCircle2 className="w-3.5 h-3.5 text-zinc-400 shrink-0 mt-0.5" />
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             ))}
           </div>
