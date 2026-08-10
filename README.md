@@ -141,8 +141,10 @@ Vite 8                 Middleware Security    Drizzle ORM / Mongoose PWA / Servi
 ## Certifications
 
 - **AI Prompt Learning Journey** — Naukri Campus (2026) · [View PDF](./public/certificates/naukri-ai-prompt-learning-journey.pdf)
+- **Artificial Intelligence Primer** — Infosys Springboard (2026) · [View PDF](./public/certificates/infosys-ai-primer-certification.pdf)
+- **What Is Generative AI?** — LinkedIn Learning (2026) · [View PDF](./public/certificates/linkedin-what-is-generative-ai.pdf)
 - **SkillQuest — Generative AI Literacy** — Simplilearn (2026) · [View PDF](./public/certificates/simplilearn-generative-ai-literacy.pdf)
-- **Introduction to Cybersecurity** — Cisco Networking Academy (2024) · [View PDF](./public/certificates/cisco-introduction-to-cybersecurity.pdf)
+- **Virtual Internship in Cybersecurity** — Cisco Networking Academy · AICTE (2025) · [View PDF](./public/certificates/cisco-aicte-cybersecurity-internship.pdf)
 - **Emerging Technologies Internship (4-Week)** — Edunet Foundation / IBM SkillsBuild (2026) · [View PDF](./public/certificates/edunet-emerging-technologies-4-week.pdf)
 
 ---

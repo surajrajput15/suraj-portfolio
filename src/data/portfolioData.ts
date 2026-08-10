@@ -250,8 +250,29 @@ export const CERTIFICATIONS: CertificationItem[] = [
     date: '3 March 2026',
     certificateId: '69a6c66ea79f2d6606a365ce',
     certificateUrl: '/certificates/naukri-ai-prompt-learning-journey.pdf',
-    topics: ['Prompt Fundamentals', 'Structured Prompting', 'Advanced Prompting Techniques'],
+    topics: ['Prompt Fundamentals', 'Structured Prompting', 'Advanced Techniques'],
     description: 'Completed structured learning covering prompt fundamentals, structured prompt workflows, and advanced prompt engineering strategies.'
+  },
+  {
+    id: 'infosys-ai-primer',
+    title: 'Artificial Intelligence Primer',
+    issuer: 'Infosys Springboard',
+    year: '2026',
+    date: '8 April 2026',
+    certificateUrl: '/certificates/infosys-ai-primer-certification.pdf',
+    topics: ['Artificial Intelligence', 'Machine Learning', 'AI Foundations'],
+    description: 'Formal credential recognizing demonstrated foundational knowledge and problem-solving methodologies in Artificial Intelligence.'
+  },
+  {
+    id: 'linkedin-genai',
+    title: 'What Is Generative AI?',
+    issuer: 'LinkedIn Learning',
+    year: '2026',
+    date: '13 March 2026',
+    certificateId: '60dc427f8addc86f70094ca6758e9f74afee92a26c9e0b6ae720517aa589cbaa',
+    certificateUrl: '/certificates/linkedin-what-is-generative-ai.pdf',
+    topics: ['Generative AI Tools', 'Artificial Intelligence', 'LLM Concepts'],
+    description: 'Course credential covering generative AI architectures, prompt interfaces, and practical application workflows.'
   },
   {
     id: 'simplilearn-generative-ai',
@@ -261,17 +282,19 @@ export const CERTIFICATIONS: CertificationItem[] = [
     date: '21 April 2026',
     certificateId: '46904736',
     certificateUrl: '/certificates/simplilearn-generative-ai-literacy.pdf',
+    topics: ['Generative AI', 'Prompt Workflows', 'AI Literacy'],
     description: 'Formal credential recognizing demonstrated foundational knowledge in Generative AI tools and concepts.'
   },
   {
-    id: 'cisco-cybersecurity',
-    title: 'Introduction to Cybersecurity',
-    issuer: 'Cisco Networking Academy',
-    year: '2024',
-    date: '15 July 2024',
-    certificateUrl: '/certificates/cisco-introduction-to-cybersecurity.pdf',
-    topics: ['Cyber Threats', 'Network Vulnerabilities', 'Threat Detection', 'Defensive Security'],
-    description: 'Foundational certification covering threat landscape analysis, network vulnerabilities, defensive security controls, and career pathways.'
+    id: 'cisco-aicte-cybersecurity',
+    title: 'Virtual Internship in Cybersecurity',
+    issuer: 'Cisco Networking Academy · AICTE',
+    year: '2025',
+    date: 'June – August 2025',
+    certificateId: 'STU681afaf17b2831746598641',
+    certificateUrl: '/certificates/cisco-aicte-cybersecurity-internship.pdf',
+    topics: ['Cybersecurity', 'Threat Detection', 'Network Security', 'Skill India'],
+    description: 'Completed the Cisco AICTE Virtual Internship Program in Cybersecurity with hands-on labs and security tooling.'
   },
   {
     id: 'edunet-emerging-tech-cert',
