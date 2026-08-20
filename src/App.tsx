@@ -16,23 +16,23 @@ import { CertificateViewerModal } from './components/ui/CertificateViewerModal';
 import { useActiveSection } from './hooks/useActiveSection';
 import type { CertificateModalData } from './types';
 
+const SECTION_IDS = [
+  'hero',
+  'about',
+  'work',
+  'ai-systems',
+  'skills',
+  'experience',
+  'certifications',
+  'resume',
+  'contact'
+];
+
 export function App() {
   const [selectedCaseStudyId, setSelectedCaseStudyId] = useState<string | null>(null);
   const [selectedCertificate, setSelectedCertificate] = useState<CertificateModalData | null>(null);
 
-  const sectionIds = [
-    'hero',
-    'about',
-    'work',
-    'ai-systems',
-    'skills',
-    'experience',
-    'certifications',
-    'resume',
-    'contact'
-  ];
-
-  const activeSection = useActiveSection(sectionIds);
+  const activeSection = useActiveSection(SECTION_IDS);
 
   const handleOpenCaseStudy = (caseStudyId: string) => {
     setSelectedCaseStudyId(caseStudyId);
