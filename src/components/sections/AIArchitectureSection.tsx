@@ -13,7 +13,7 @@ export const AIArchitectureSection: React.FC<AIArchitectureSectionProps> = ({ on
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-white/[0.08] gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 font-mono text-xs text-blue-400 uppercase tracking-widest mb-2 font-semibold">
+            <div className="inline-flex items-center gap-2 font-mono text-xs text-violet-400 uppercase tracking-widest mb-2 font-semibold">
               <Cpu className="w-3.5 h-3.5" />
               <span>AI Engineering & Pipelines</span>
             </div>
@@ -38,11 +38,11 @@ export const AIArchitectureSection: React.FC<AIArchitectureSectionProps> = ({ on
                 className="group p-6 rounded-2xl bg-[#0A0A0D] border border-white/[0.08] hover:border-white/[0.2] transition-all flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-[#121217] border border-white/[0.1] flex items-center justify-center text-blue-400 mb-5 group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-[#121217] border border-white/[0.1] flex items-center justify-center text-violet-400 mb-5 group-hover:scale-105 transition-transform">
                     <Icon className="w-5 h-5" />
                   </div>
 
-                  <h3 className="font-display text-lg font-bold text-white mb-2 group-hover:text-blue-300 transition-colors">
+                  <h3 className="font-display text-lg font-bold text-white mb-2 group-hover:text-violet-300 transition-colors">
                     {capability.title}
                   </h3>
 
@@ -71,7 +71,7 @@ export const AIArchitectureSection: React.FC<AIArchitectureSectionProps> = ({ on
                     <button
                       type="button"
                       onClick={() => onOpenCaseStudy(capability.caseStudyId!)}
-                      className="inline-flex items-center gap-1 text-xs font-medium text-white hover:text-blue-400 transition-colors"
+                      className="inline-flex items-center gap-1 text-xs font-medium text-white hover:text-violet-400 transition-colors"
                     >
                       <span>Details</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
@@ -95,7 +95,7 @@ export const AIArchitectureSection: React.FC<AIArchitectureSectionProps> = ({ on
           </div>
           <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-2">
             <div className="p-2.5 rounded-lg bg-black/40 border border-white/[0.06] text-xs font-mono text-zinc-300 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-blue-400"></span>
+              <span className="w-2 h-2 rounded-full bg-violet-400"></span>
               <span>Input: Structured Note Context</span>
             </div>
             <div className="p-2.5 rounded-lg bg-black/40 border border-white/[0.06] text-xs font-mono text-zinc-300 flex items-center gap-2">

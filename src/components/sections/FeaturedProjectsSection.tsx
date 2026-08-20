@@ -85,7 +85,7 @@ export const FeaturedProjectsSection: React.FC<FeaturedProjectsSectionProps> = (
                         <span className="font-mono text-xs font-bold text-zinc-400 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08]">
                           PROJECT {project.number}
                         </span>
-                        <span className="text-xs font-mono text-blue-400">
+                        <span className="text-xs font-mono text-violet-400">
                           {project.category}
                         </span>
                       </div>

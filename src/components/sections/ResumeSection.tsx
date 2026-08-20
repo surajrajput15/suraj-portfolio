@@ -12,7 +12,7 @@ export const ResumeSection: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 pb-6 border-b border-white/[0.08] gap-4">
           <div>
             <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-2 font-semibold flex items-center gap-2">
-              <FileText className="w-3.5 h-3.5 text-blue-400" />
+              <FileText className="w-3.5 h-3.5 text-violet-400" />
               <span>Curriculum Vitae</span>
             </div>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
@@ -68,7 +68,7 @@ export const ResumeSection: React.FC = () => {
                 <h3 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
                   {PERSONAL_INFO.name}
                 </h3>
-                <span className="font-mono text-sm text-blue-400 font-semibold">
+                <span className="font-mono text-sm text-violet-400 font-semibold">
                   {PERSONAL_INFO.positioning}
                 </span>
               </div>
@@ -157,7 +157,7 @@ export const ResumeSection: React.FC = () => {
                         | Next.js, React, TypeScript, Node.js, PostgreSQL, Clerk, Groq
                       </span>
                     </div>
-                    <div className="text-xs font-mono text-blue-400 flex items-center gap-2">
+                    <div className="text-xs font-mono text-violet-400 flex items-center gap-2">
                       <a href="https://studysnap-sigma.vercel.app/" target="_blank" rel="noreferrer" className="hover:underline">Live Demo</a>
                       <span>•</span>
                       <a href="https://github.com/surajrajput15/StudySnap" target="_blank" rel="noreferrer" className="hover:underline">GitHub</a>
@@ -176,7 +176,7 @@ export const ResumeSection: React.FC = () => {
                         | React, Vite, Node.js, Express, MongoDB, Razorpay
                       </span>
                     </div>
-                    <div className="text-xs font-mono text-blue-400 flex items-center gap-2">
+                    <div className="text-xs font-mono text-violet-400 flex items-center gap-2">
                       <a href="https://cartify-hub.vercel.app/" target="_blank" rel="noreferrer" className="hover:underline">Live Demo</a>
                       <span>•</span>
                       <a href="https://github.com/surajrajput15/CARTIFY-APP" target="_blank" rel="noreferrer" className="hover:underline">GitHub</a>

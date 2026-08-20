@@ -18,7 +18,7 @@ export const AboutSection: React.FC = () => {
                   <h3 className="font-display font-bold text-lg text-white">
                     {PERSONAL_INFO.name}
                   </h3>
-                  <p className="text-xs font-mono text-blue-400">
+                  <p className="text-xs font-mono text-violet-400">
                     {PERSONAL_INFO.positioning}
                   </p>
                 </div>
@@ -63,7 +63,7 @@ export const AboutSection: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               <div className="p-4 rounded-xl bg-[#0C0C10] border border-white/[0.06] space-y-1.5">
                 <div className="flex items-center gap-2 text-xs font-semibold text-white">
-                  <Terminal className="w-4 h-4 text-blue-400" />
+                  <Terminal className="w-4 h-4 text-violet-400" />
                   <span>Production-First Mindset</span>
                 </div>
                 <p className="text-xs text-zinc-400 leading-normal">

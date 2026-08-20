@@ -53,7 +53,7 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
                 Technical Case Study
               </span>
               <span className="w-1 h-1 rounded-full bg-zinc-600"></span>
-              <span className="text-[11px] font-mono text-blue-400">Verified Architecture</span>
+              <span className="text-[11px] font-mono text-violet-400">Verified Architecture</span>
             </div>
             <h3 id="case-study-title" className="font-display text-2xl sm:text-3xl font-extrabold text-white">
               {caseStudy.title}
@@ -136,7 +136,7 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
                       className="p-4 rounded-xl bg-[#0F0F14] border border-white/[0.06] space-y-1"
                     >
                       <div className="text-sm font-semibold text-white flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-violet-400"></span>
                         <span>{feat.title}</span>
                       </div>
                       <p className="text-xs text-zinc-400 leading-relaxed pl-3.5 font-normal">
@@ -154,7 +154,7 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
             <div className="space-y-6 animate-fade-in">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="p-5 rounded-2xl bg-[#111115] border border-white/[0.06] space-y-3">
-                  <div className="text-xs font-mono uppercase tracking-wider text-blue-400 font-semibold">
+                  <div className="text-xs font-mono uppercase tracking-wider text-violet-400 font-semibold">
                     Frontend Layer
                   </div>
                   <ul className="space-y-1.5 text-xs sm:text-sm text-zinc-300 font-normal">

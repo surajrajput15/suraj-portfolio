@@ -44,7 +44,7 @@ export const CertificationsSection: React.FC<CertificationsSectionProps> = ({
                 >
                   <div className="space-y-2.5">
                     <div className="flex items-center justify-between text-xs font-mono">
-                      <span className="text-blue-400 font-medium truncate max-w-[170px]">{cert.issuer}</span>
+                      <span className="text-violet-400 font-medium truncate max-w-[170px]">{cert.issuer}</span>
                       <span className="text-zinc-400">{cert.year}</span>
                     </div>
 
@@ -106,7 +106,7 @@ export const CertificationsSection: React.FC<CertificationsSectionProps> = ({
           {/* Education (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-2 font-mono text-xs text-zinc-400 uppercase tracking-wider font-semibold mb-2">
-              <GraduationCap className="w-4 h-4 text-blue-400" />
+              <GraduationCap className="w-4 h-4 text-violet-400" />
               <span>Higher Education</span>
             </div>
 

@@ -110,7 +110,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ onViewCert
                   <div className="p-4 rounded-xl bg-[#0F0F14] border border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
-                        <span className="text-[10px] font-mono uppercase tracking-wider text-blue-400 font-semibold px-2 py-0.5 rounded bg-blue-500/10 border border-blue-500/20">
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-violet-400 font-semibold px-2 py-0.5 rounded bg-violet-500/10 border border-violet-500/20">
                           Supporting Credential
                         </span>
                         <span className="text-xs font-semibold text-white">
