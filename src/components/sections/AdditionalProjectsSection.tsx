@@ -12,7 +12,7 @@ export const AdditionalProjectsSection: React.FC = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-white/[0.08] gap-4">
           <div>
-            <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-2 font-semibold">
+            <div className="font-mono text-xs text-violet-400 uppercase tracking-widest mb-2 font-semibold">
               Curated Repositories · Tier B
             </div>
             <h2 className="font-display text-2xl sm:text-4xl font-bold text-white tracking-tight">
@@ -41,7 +41,7 @@ export const AdditionalProjectsSection: React.FC = () => {
                     loading="lazy"
                     decoding="async"
                   />
-                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/[0.1] text-[11px] font-mono text-zinc-300">
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-violet-950/70 backdrop-blur-md border border-violet-500/25 text-[11px] font-mono text-violet-200">
                     {project.category}
                   </div>
                 </div>

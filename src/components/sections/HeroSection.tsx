@@ -17,6 +17,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreWork }) => {
 
       {/* Subtle radial lighting */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-white/[0.02] blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[420px] h-[280px] bg-violet-600/[0.14] blur-[130px] rounded-full pointer-events-none" />
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
         <div className="flex flex-col items-center sm:items-start space-y-6">
@@ -36,7 +37,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreWork }) => {
             </p>
             <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.08]">
               Full Stack Developer <br className="hidden sm:inline" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-300 via-violet-400 to-fuchsia-500 drop-shadow-[0_0_28px_rgba(167,139,250,0.4)]">
                 + AI
               </span>
             </h1>

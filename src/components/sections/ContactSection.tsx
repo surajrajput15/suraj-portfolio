@@ -12,7 +12,7 @@ export const ContactSection: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
         {/* Header */}
         <div className="mb-12 pb-6 border-b border-white/[0.08] space-y-2">
-          <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest font-semibold">
+          <div className="font-mono text-xs text-violet-400 uppercase tracking-widest font-semibold">
             Get In Touch
           </div>
           <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight">

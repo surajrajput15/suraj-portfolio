@@ -14,8 +14,8 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ onViewCert
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-white/[0.08] gap-4">
           <div>
-            <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-2 font-semibold flex items-center gap-2">
-              <Briefcase className="w-3.5 h-3.5 text-zinc-400" />
+            <div className="font-mono text-xs text-violet-400 uppercase tracking-widest mb-2 font-semibold flex items-center gap-2">
+              <Briefcase className="w-3.5 h-3.5 text-violet-400" />
               <span>Career Timeline</span>
             </div>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
@@ -45,7 +45,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ onViewCert
                       <h3 className="font-display text-lg sm:text-xl font-bold text-white">
                         {exp.role}
                       </h3>
-                      <span className="text-xs font-mono text-zinc-400 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08]">
+                      <span className="text-xs font-mono text-violet-300 px-2 py-0.5 rounded-full bg-violet-500/10 border border-violet-500/20">
                         {exp.type}
                       </span>
                     </div>

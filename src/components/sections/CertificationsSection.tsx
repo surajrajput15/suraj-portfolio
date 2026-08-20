@@ -11,12 +11,12 @@ export const CertificationsSection: React.FC<CertificationsSectionProps> = ({
   onViewCertificate
 }) => {
   return (
-    <section id="certifications" className="py-24 border-t border-white/[0.08] relative">
+    <section id="certifications" className="py-24 border-t border-white/[0.08] relative bg-[#070709]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-white/[0.08] gap-4">
           <div>
-            <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-2 font-semibold">
+            <div className="font-mono text-xs text-violet-400 uppercase tracking-widest mb-2 font-semibold">
               Credentials & Academic Background
             </div>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
@@ -116,7 +116,7 @@ export const CertificationsSection: React.FC<CertificationsSectionProps> = ({
                 className="p-6 rounded-2xl bg-[#09090C] border border-white/[0.08] hover:border-white/[0.18] transition-all space-y-4"
               >
                 <div className="space-y-1">
-                  <span className="text-xs font-mono text-zinc-400 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08]">
+                  <span className="text-xs font-mono text-violet-300 px-2.5 py-0.5 rounded-full bg-violet-500/10 border border-violet-500/20">
                     Undergraduate Degree
                   </span>
                   <h4 className="font-display text-lg font-bold text-white pt-1">

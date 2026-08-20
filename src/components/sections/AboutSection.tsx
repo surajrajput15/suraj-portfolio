@@ -4,7 +4,7 @@ import { PERSONAL_INFO } from '../../data/portfolioData';
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="py-24 border-t border-white/[0.08] relative">
+    <section id="about" className="py-24 border-t border-white/[0.08] relative bg-[#070709]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column - Editorial Profile Card */}
@@ -48,7 +48,7 @@ export const AboutSection: React.FC = () => {
           {/* Right Column - Concise Technical Narrative */}
           <div className="lg:col-span-7 space-y-6 text-left">
             <div className="space-y-2">
-              <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest font-semibold">
+              <div className="font-mono text-xs text-violet-400 uppercase tracking-widest font-semibold">
                 Engineering Philosophy
               </div>
               <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">

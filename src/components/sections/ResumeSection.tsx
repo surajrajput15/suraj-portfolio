@@ -11,7 +11,7 @@ export const ResumeSection: React.FC = () => {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 pb-6 border-b border-white/[0.08] gap-4">
           <div>
-            <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-2 font-semibold flex items-center gap-2">
+            <div className="font-mono text-xs text-violet-400 uppercase tracking-widest mb-2 font-semibold flex items-center gap-2">
               <FileText className="w-3.5 h-3.5 text-violet-400" />
               <span>Curriculum Vitae</span>
             </div>

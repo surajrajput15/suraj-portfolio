@@ -23,12 +23,12 @@ const iconMap: Record<string, LucideIcon> = {
 
 export const CapabilitiesSection: React.FC = () => {
   return (
-    <section id="skills" className="py-24 border-t border-white/[0.08] relative">
+    <section id="skills" className="py-24 border-t border-white/[0.08] relative bg-[#070709]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-white/[0.08] gap-4">
           <div>
-            <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-2 font-semibold">
+            <div className="font-mono text-xs text-violet-400 uppercase tracking-widest mb-2 font-semibold">
               Technical Capabilities
             </div>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">

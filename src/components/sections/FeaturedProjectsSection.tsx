@@ -16,7 +16,7 @@ export const FeaturedProjectsSection: React.FC<FeaturedProjectsSectionProps> = (
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 pb-6 border-b border-white/[0.08] gap-4">
           <div>
-            <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-2 font-semibold">
+            <div className="font-mono text-xs text-violet-400 uppercase tracking-widest mb-2 font-semibold">
               Selected Work · Tier A
             </div>
             <h2 className="font-display text-3xl sm:text-5xl font-bold text-white tracking-tight">
@@ -82,7 +82,7 @@ export const FeaturedProjectsSection: React.FC<FeaturedProjectsSectionProps> = (
                   <div className={`lg:col-span-5 space-y-6 ${isReversed ? 'lg:order-1' : 'lg:order-2'}`}>
                     <div className="space-y-2">
                       <div className="flex items-center gap-3">
-                        <span className="font-mono text-xs font-bold text-zinc-400 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08]">
+                        <span className="font-mono text-xs font-bold text-violet-300 px-2.5 py-0.5 rounded-full bg-violet-500/10 border border-violet-500/20">
                           PROJECT {project.number}
                         </span>
                         <span className="text-xs font-mono text-violet-400">
