@@ -7,7 +7,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     subtitle: 'AI-Powered Study Platform & Intelligent Revision Companion',
     summary: 'A full-stack learning platform integrating Groq LLaMA-3.1 models, rich-text note taking, audio recording with transcription, spaced repetition scheduling, and PWA support.',
     liveUrl: 'https://studysnap-sigma.vercel.app/',
-    githubUrl: 'https://github.com/surajrajput999/StudySnap',
+    githubUrl: 'https://github.com/surajrajput15/StudySnap',
     problem: 'Students frequently juggle fragmented tools—switching between separate apps for note-taking, flashcard generation, audio recording, and generic AI chat interfaces. This leads to broken revision schedules and lost contextual retention.',
     solution: 'Designed and engineered a unified study platform where structured notes directly feed into AI tutoring, automated quiz generators, audio transcription, and a spaced repetition revision calendar.',
     architecture: {
@@ -127,7 +127,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     subtitle: 'Full-Stack E-Commerce Platform with Hardened Checkout',
     summary: 'A production-oriented full-stack e-commerce system featuring password/OTP authentication with Google OAuth, Razorpay payment verification, server-authoritative pricing, and role-based administration.',
     liveUrl: 'https://cartify-hub.vercel.app/',
-    githubUrl: 'https://github.com/surajrajput999/CARTIFY-APP',
+    githubUrl: 'https://github.com/surajrajput15/CARTIFY-APP',
     backendUrl: 'https://cartify-api-10g3.onrender.com/',
     problem: 'Many e-commerce tutorial projects rely on client-side calculations for totals and discounts, creating serious price tampering vulnerabilities, and lack proper route protection or security headers.',
     solution: 'Engineered a full-stack e-commerce architecture where all pricing, cart totals, and payment verifications are computed authoritatively on the backend with Razorpay signature verification and protected admin routes.',

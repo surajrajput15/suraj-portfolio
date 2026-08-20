@@ -16,8 +16,8 @@ export const PERSONAL_INFO = {
   phone: '+91 7209690361',
   location: 'Jaipur, Rajasthan',
   status: 'Open to Full Stack & AI Engineering Opportunities',
-  githubUrl: 'https://github.com/surajrajput999',
-  linkedinUrl: 'https://www.linkedin.com/in/suraj-bhan-pratap-singh-',
+  githubUrl: 'https://github.com/surajrajput15',
+  linkedinUrl: 'https://www.linkedin.com/in/suraj-bhan-pratap-singh-891727293',
   resumePdfUrl: '/Suraj_Bhan_Pratap_Singh_Resume.pdf',
   quickStats: [
     { label: 'Core Focus', value: 'Full Stack + AI' },
@@ -52,6 +52,14 @@ export const AI_CAPABILITIES: AICapability[] = [
     technologies: ['Artificial Intelligence', 'Agentic AI Concepts', 'IBM Cloud', 'Cybersecurity', 'IBM SkillsBuild'],
     projectProof: 'Documented in the Edunet Foundation / IBM SkillsBuild internship deliverables.',
     projectProofName: 'IBM SkillsBuild Internship',
+  },
+  {
+    id: 'agentic-rag-research',
+    title: 'Agentic Research Agent with RAG',
+    description: 'Architected an agentic AI research assistant using IBM Granite foundation models orchestrated through Langflow, combining retrieval-augmented generation (RAG) with structured literature and document analysis workflows.',
+    technologies: ['IBM Granite', 'IBM watsonx.ai', 'Langflow', 'RAG', 'Agentic AI'],
+    projectProof: 'Built as the ResearchGPT project under the IBM SkillsBuild / AICTE 2026 program.',
+    projectProofName: 'ResearchGPT',
   }
 ];
 
@@ -87,7 +95,7 @@ export const FEATURED_PROJECTS: Project[] = [
       '/projects/studysnap/mobile-dashboard.png'
     ],
     liveUrl: 'https://studysnap-sigma.vercel.app/',
-    githubUrl: 'https://github.com/surajrajput999/StudySnap',
+    githubUrl: 'https://github.com/surajrajput15/StudySnap',
     highlights: [
       'Groq-powered AI tutoring, summarization, MCQ quiz generation, and translation via authenticated APIs',
       'Spaced repetition revision scheduling with recall difficulty ratings and streak tracking',
@@ -124,7 +132,7 @@ export const FEATURED_PROJECTS: Project[] = [
       '/projects/cartify/mobile-view.jpeg'
     ],
     liveUrl: 'https://cartify-hub.vercel.app/',
-    githubUrl: 'https://github.com/surajrajput999/CARTIFY-APP',
+    githubUrl: 'https://github.com/surajrajput15/CARTIFY-APP',
     backendUrl: 'https://cartify-api-10g3.onrender.com/',
     highlights: [
       'Password/OTP authentication with Google OAuth and JWT-based authorization',
@@ -149,11 +157,46 @@ export const ADDITIONAL_PROJECTS: Project[] = [
     category: 'AI Tooling',
     image: '/projects/ai-study-buddy/screenshot.png',
     liveUrl: 'https://notes-nexus-labs.vercel.app/',
-    githubUrl: 'https://github.com/surajrajput999/AI-Study-Buddy.git',
+    githubUrl: 'https://github.com/surajrajput15/AI-Study-Buddy.git',
     highlights: [
       'Text summarization workflows powered by Google Gemini API',
       'On-demand functional flashcard generator for fast concept revision',
       'Minimalist, responsive interface deployed on Vercel'
+    ]
+  },
+  {
+    id: 'researchgpt',
+    tier: 'additional',
+    number: '04',
+    title: 'ResearchGPT',
+    tagline: 'Agentic AI Research Agent using IBM Granite & Langflow',
+    description: 'An agentic AI research assistant designed to streamline literature discovery, document analysis, and research summarization. Orchestrated through Langflow with IBM Granite foundation models on watsonx.ai, combining retrieval-augmented generation (RAG) with structured research workflows. Developed for Problem Statement No. 1 (Research Agent) under the IBM SkillsBuild / AICTE 2026 program.',
+    technologies: ['IBM Granite', 'IBM watsonx.ai', 'Langflow', 'RAG', 'Agentic AI', 'Python'],
+    category: 'Agentic AI',
+    image: '/projects/researchgpt/architecture-blueprint.png',
+    githubUrl: 'https://github.com/surajrajput15/ResearchGPT',
+    highlights: [
+      'Agentic AI + RAG architecture orchestrating research retrieval before LLM reasoning',
+      'Langflow workflow layer routing queries to literature sources and document context',
+      'IBM Granite reasoning layer generating structured summaries, insights, and references'
+    ]
+  },
+  {
+    id: 'sanjivani',
+    tier: 'additional',
+    number: '05',
+    title: 'Sanjivani — Diabetes Predictor',
+    tagline: 'Machine Learning Health Risk Prediction Web App',
+    description: 'An AI-powered diabetes prediction web application built with Scikit-Learn and Streamlit. Trained on the Pima Indians Diabetes Dataset (768 samples, 8 health indicators), the app returns an instant diabetes risk prediction from user health parameters — making early screening accessible, fast, and accurate.',
+    technologies: ['Python', 'Scikit-Learn', 'Streamlit', 'Pandas', 'NumPy', 'Pima Indians Dataset'],
+    category: 'ML / AI',
+    image: '/projects/sanjivani/app-preview.png',
+    liveUrl: 'https://sanjivani-diabetes-predictor-an6yfh5zfnx55h9rqybtjx.streamlit.app/',
+    githubUrl: 'https://github.com/surajrajput15/Sanjivani-Diabetes-Predictor',
+    highlights: [
+      'Trained ML classification model achieving ~78–85% accuracy on 768 patient records',
+      'Instant risk prediction from 8 clinical health indicators via clean Streamlit UI',
+      'Responsive, lightweight browser experience deployed on Streamlit Cloud'
     ]
   }
 ];
@@ -290,7 +333,7 @@ export const CERTIFICATIONS: CertificationItem[] = [
     title: 'Virtual Internship in Cybersecurity',
     issuer: 'Cisco Networking Academy · AICTE',
     year: '2025',
-    date: 'June – August 2025',
+    date: 'June 2025 – August 2025',
     certificateId: 'STU681afaf17b2831746598641',
     certificateUrl: '/certificates/cisco-aicte-cybersecurity-internship.pdf',
     topics: ['Cybersecurity', 'Threat Detection', 'Network Security', 'Skill India'],

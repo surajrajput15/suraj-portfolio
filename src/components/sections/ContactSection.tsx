@@ -80,7 +80,7 @@ export const ContactSection: React.FC = () => {
                 </div>
                 <div>
                   <div className="text-xs font-semibold text-white font-display">GitHub</div>
-                  <div className="text-[11px] font-mono text-zinc-400">surajrajput999</div>
+                  <div className="text-[11px] font-mono text-zinc-400">surajrajput15</div>
                 </div>
               </div>
               <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />

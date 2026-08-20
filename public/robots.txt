@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: /sitemap.xml
+Sitemap: https://surajrajput15.vercel.app/sitemap.xml

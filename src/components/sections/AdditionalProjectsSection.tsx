@@ -20,7 +20,7 @@ export const AdditionalProjectsSection: React.FC = () => {
             </h2>
           </div>
           <p className="text-sm text-zinc-400 max-w-md font-normal leading-relaxed">
-            Secondary tools and prototypes built to explore serverless AI integration and on-demand study utility workflows.
+            Secondary tools, ML prototypes, and agentic AI experiments spanning serverless AI integration, machine learning, and research automation.
           </p>
         </div>
 
@@ -39,6 +39,7 @@ export const AdditionalProjectsSection: React.FC = () => {
                     alt={project.title}
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/[0.1] text-[11px] font-mono text-zinc-300">
                     {project.category}

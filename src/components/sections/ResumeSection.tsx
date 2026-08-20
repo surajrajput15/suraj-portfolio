@@ -160,7 +160,7 @@ export const ResumeSection: React.FC = () => {
                     <div className="text-xs font-mono text-blue-400 flex items-center gap-2">
                       <a href="https://studysnap-sigma.vercel.app/" target="_blank" rel="noreferrer" className="hover:underline">Live Demo</a>
                       <span>•</span>
-                      <a href="https://github.com/surajrajput999/StudySnap" target="_blank" rel="noreferrer" className="hover:underline">GitHub</a>
+                      <a href="https://github.com/surajrajput15/StudySnap" target="_blank" rel="noreferrer" className="hover:underline">GitHub</a>
                     </div>
                   </div>
                   <p className="text-xs text-zinc-300 leading-relaxed">
@@ -179,7 +179,7 @@ export const ResumeSection: React.FC = () => {
                     <div className="text-xs font-mono text-blue-400 flex items-center gap-2">
                       <a href="https://cartify-hub.vercel.app/" target="_blank" rel="noreferrer" className="hover:underline">Live Demo</a>
                       <span>•</span>
-                      <a href="https://github.com/surajrajput999/CARTIFY-APP" target="_blank" rel="noreferrer" className="hover:underline">GitHub</a>
+                      <a href="https://github.com/surajrajput15/CARTIFY-APP" target="_blank" rel="noreferrer" className="hover:underline">GitHub</a>
                     </div>
                   </div>
                   <p className="text-xs text-zinc-300 leading-relaxed">

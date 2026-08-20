@@ -6,7 +6,7 @@
 
 Building production-oriented full-stack applications and practical AI-powered systems.
 
-[GitHub](https://github.com/surajrajput999) &nbsp;•&nbsp; [LinkedIn](https://www.linkedin.com/in/suraj-bhan-pratap-singh-) &nbsp;•&nbsp; [Resume (PDF)](./public/Suraj_Bhan_Pratap_Singh_Resume.pdf)
+[GitHub](https://github.com/surajrajput15) &nbsp;•&nbsp; [LinkedIn](https://www.linkedin.com/in/suraj-bhan-pratap-singh-891727293) &nbsp;•&nbsp; [Resume (PDF)](./public/Suraj_Bhan_Pratap_Singh_Resume.pdf)
 
 <br />
 
@@ -54,7 +54,7 @@ Full Stack Developer + AI focused on building production-oriented web applicatio
   - **Offline Resilience:** Installable Progressive Web App (PWA) architecture with Service Worker caching.
   - **Data Layer:** Type-safe database schema modeled with Drizzle ORM and Neon Serverless PostgreSQL.
 
-🔗 **Links:** [Live Demo](https://studysnap-sigma.vercel.app/) &nbsp;|&nbsp; [Source Code](https://github.com/surajrajput999/StudySnap)
+🔗 **Links:** [Live Demo](https://studysnap-sigma.vercel.app/) &nbsp;|&nbsp; [Source Code](https://github.com/surajrajput15/StudySnap)
 
 <br />
 
@@ -72,7 +72,7 @@ Full Stack Developer + AI focused on building production-oriented web applicatio
   - **Application Security:** Express rate limiting, Helmet HTTP security headers, CORS origin allowlists, and strict input validation schemas.
   - **Performance Optimization:** Route-level code splitting via `React.lazy` and memoized UI components for sub-second page transitions.
 
-🔗 **Links:** [Live Demo](https://cartify-hub.vercel.app/) &nbsp;|&nbsp; [Source Code](https://github.com/surajrajput999/CARTIFY-APP)
+🔗 **Links:** [Live Demo](https://cartify-hub.vercel.app/) &nbsp;|&nbsp; [Source Code](https://github.com/surajrajput15/CARTIFY-APP)
 
 ---
 
@@ -88,7 +88,35 @@ Full Stack Developer + AI focused on building production-oriented web applicatio
   - Generates interactive, functional flashcards for targeted revision.
   - Responsive, distraction-free interface deployed serverless on Vercel.
 
-🔗 **Links:** [Live Demo](https://notes-nexus-labs.vercel.app/) &nbsp;|&nbsp; [Source Code](https://github.com/surajrajput999/AI-Study-Buddy.git)
+🔗 **Links:** [Live Demo](https://notes-nexus-labs.vercel.app/) &nbsp;|&nbsp; [Source Code](https://github.com/surajrajput15/AI-Study-Buddy.git)
+
+<br />
+
+### 04 — ResearchGPT
+
+> **Agentic AI research agent combining IBM Granite foundation models with RAG and Langflow orchestration.**
+
+- **Stack:** `IBM Granite` · `IBM watsonx.ai` · `Langflow` · `RAG` · `Agentic AI` · `Python`
+- **Key Capabilities:**
+  - Natural-language research query processing through an orchestrated Langflow workflow layer.
+  - Retrieval-Augmented Generation (RAG) grounding LLM responses in retrieved literature and document context.
+  - Structured research outputs including summaries, insights, references, and reports via the IBM Granite reasoning layer.
+
+🔗 **Links:** [Source Code](https://github.com/surajrajput15/ResearchGPT)
+
+<br />
+
+### 05 — Sanjivani · Diabetes Predictor
+
+> **Machine learning health-risk prediction web app for early diabetes screening.**
+
+- **Stack:** `Python` · `Scikit-Learn` · `Streamlit` · `Pandas` · `NumPy` · `Pima Indians Dataset`
+- **Key Capabilities:**
+  - Trained ML classification model (~78–85% accuracy) on the Pima Indians Diabetes Dataset.
+  - Instant diabetes risk prediction from 8 clinical health indicators.
+  - Responsive, lightweight Streamlit interface deployed on Streamlit Cloud.
+
+🔗 **Links:** [Live Demo](https://sanjivani-diabetes-predictor-an6yfh5zfnx55h9rqybtjx.streamlit.app/) &nbsp;|&nbsp; [Source Code](https://github.com/surajrajput15/Sanjivani-Diabetes-Predictor)
 
 ---
 
@@ -98,6 +126,7 @@ Demonstrated integration of inference engines, structured prompt engineering, an
 
 - **LLM Inference Pipelines:** Groq Cloud LLaMA-3.1 integration in StudySnap for note summarization, interactive tutoring, and automated quiz generation through authenticated endpoints.
 - **Generative Learning Aids:** Google Gemini API integration in Notes Nexus Labs for concept synthesis and flashcard generation.
+- **Agentic AI & RAG Research Agent:** ResearchGPT, an agentic research assistant orchestrating IBM Granite models through Langflow with retrieval-augmented generation for literature discovery and document analysis.
 - **Emerging & Agentic AI Concepts:** Exploration of Agentic AI, Cloud Computing, Cybersecurity, and Quantum Computing paradigms through the IBM SkillsBuild and Edunet Foundation internship program.
 
 ---
@@ -111,7 +140,8 @@ React 19               Node.js                PostgreSQL (Neon)      Groq (LLaMA
 Next.js 16 (App Router)Express.js             MongoDB Atlas          Google Gemini API
 TypeScript             REST APIs              MySQL                  Prompt Engineering
 Tailwind CSS 4         JWT Authentication     Upstash Redis          Structured Outputs
-Vite 8                 Middleware Security    Drizzle ORM / Mongoose PWA / Service Workers
+Vite 8                 Middleware Security    Drizzle ORM / Mongoose IBM Granite / Langflow / RAG
+Python / Streamlit     ML Inference           -                      Scikit-Learn / Pandas / NumPy
 ```
 
 - **Authentication & Security:** Clerk, Google OAuth, JWT, Helmet, CORS, Rate Limiting, PIN Encryption
@@ -204,7 +234,7 @@ suraj-portfolio/
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/surajrajput999/suraj-portfolio.git
+git clone https://github.com/surajrajput15/suraj-portfolio.git
 
 # 2. Navigate to project directory
 cd suraj-portfolio
