@@ -2,12 +2,7 @@ import React from 'react';
 import { ArrowDown, ArrowUpRight, FileText, Terminal } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 
-interface HeroSectionProps {
-  onExploreWork: () => void;
-  onOpenResume: () => void;
-}
-
-export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreWork, onOpenResume }) => {
+export const HeroSection: React.FC = () => {
   return (
     <section
       id="hero"
@@ -81,21 +76,27 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreWork, onOpenR
             <div className="flex flex-wrap items-center justify-center gap-3.5 pt-2">
               <button
                 type="button"
-                onClick={onExploreWork}
+                onClick={() => {
+                  const workElement = document.getElementById('work');
+                  if (workElement) {
+                    workElement.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-black font-semibold text-sm hover:bg-zinc-200 transition-all shadow-lg active:scale-[0.98]"
               >
                 <span>Explore Selected Work</span>
                 <ArrowDown className="w-4 h-4" />
               </button>
 
-              <button
-                type="button"
-                onClick={onOpenResume}
+              <a
+                href={PERSONAL_INFO.resumePdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#111115] hover:bg-[#18181F] text-white font-medium text-sm border border-white/[0.12] hover:border-white/[0.24] transition-all active:scale-[0.98]"
               >
                 <FileText className="w-4 h-4 text-zinc-400" />
                 <span>View Resume</span>
-              </button>
+              </a>
 
               <a
                 href={PERSONAL_INFO.githubUrl}

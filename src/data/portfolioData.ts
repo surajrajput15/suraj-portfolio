@@ -163,22 +163,22 @@ export const EXPERIENCES: ExperienceItem[] = [
     period: '11 May 2026 – 21 June 2026',
     location: 'Jaipur / Virtual',
     type: 'Internship',
-    certificateUrl: 'https://drive.google.com/file/d/1HQZiZGNvkKlKQxNDCIlG9PI9ULKCFi2B/preview',
-    certificateDriveUrl: 'https://drive.google.com/file/d/1HQZiZGNvkKlKQxNDCIlG9PI9ULKCFi2B/view?usp=sharing',
+    certificates: [
+      {
+        label: 'Certificate 1',
+        driveUrl: 'https://drive.google.com/file/d/1HQZiZGNvkKlKQxNDCIlG9PI9ULKCFi2B/view?usp=sharing'
+      },
+      {
+        label: 'Certificate 2',
+        driveUrl: 'https://drive.google.com/file/d/1tKWzr-TlaMmF-ZAzmxnudhp18DkkTknz/view?usp=sharing'
+      }
+    ],
     points: [
       'Completed a 6-week internship focused on Artificial Intelligence, Agentic AI, Cloud Computing, Cybersecurity, and Quantum Computing, with hands-on exposure to IBM SkillsBuild, IBM Cloud, and IBM BOB.',
       'Developed an industry-relevant project in Artificial Intelligence and Cloud Computing, applying emerging technology concepts to a practical use case.',
       'Gained practical understanding of AI application development, cloud technologies, cybersecurity fundamentals, and emerging computing paradigms.'
     ],
     technologies: ['Artificial Intelligence', 'Agentic AI', 'Cloud Computing', 'Cybersecurity', 'IBM SkillsBuild', 'IBM Cloud'],
-    supportingCredential: {
-      title: 'Emerging Technologies (4-Week) — Certificate 2',
-      period: 'May – June 2026',
-      issuer: 'Edunet Foundation · AICTE / IBM SkillsBuild',
-      topics: ['Agentic AI', 'Cybersecurity', 'Quantum Computing', 'IBM Cloud'],
-      certificateUrl: 'https://drive.google.com/file/d/1tKWzr-TlaMmF-ZAzmxnudhp18DkkTknz/preview',
-      certificateDriveUrl: 'https://drive.google.com/file/d/1tKWzr-TlaMmF-ZAzmxnudhp18DkkTknz/view?usp=sharing',
-    }
   },
   {
     id: 'apexplanet',
@@ -188,8 +188,12 @@ export const EXPERIENCES: ExperienceItem[] = [
     period: '11 December 2025 – 24 January 2026',
     location: 'Jaipur / Virtual',
     type: 'Internship',
-    certificateUrl: 'https://drive.google.com/file/d/1GyYFQDOGHaqfdZNNbTuKY1XpNmJlgF13/preview',
-    certificateDriveUrl: 'https://drive.google.com/file/d/1GyYFQDOGHaqfdZNNbTuKY1XpNmJlgF13/view?usp=sharing',
+    certificates: [
+      {
+        label: 'Certificate',
+        driveUrl: 'https://drive.google.com/file/d/1GyYFQDOGHaqfdZNNbTuKY1XpNmJlgF13/view?usp=sharing'
+      }
+    ],
     points: [
       'Completed a project-based internship applying HTML, CSS, and JavaScript through practical frontend development work.'
     ],

@@ -2,11 +2,7 @@ import React from 'react';
 import { Download, FileText, ExternalLink, Sparkles } from 'lucide-react';
 import { PERSONAL_INFO, RESUME_LAST_UPDATED } from '../../data/portfolioData';
 
-interface ResumeSectionProps {
-  onOpenResume?: () => void;
-}
-
-export const ResumeSection: React.FC<ResumeSectionProps> = ({ onOpenResume }) => {
+export const ResumeSection: React.FC = () => {
   return (
     <section id="resume" className="py-24 border-t border-white/[0.08] relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,7 +22,7 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({ onOpenResume }) =>
           </div>
         </div>
 
-        {/* Single-card CTA — One-click instant open */}
+        {/* Single-card CTA — One-click instant open in new tab */}
         <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-violet-500/[0.08] via-fuchsia-500/[0.04] to-transparent border border-violet-400/20 space-y-6 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-400/30 text-[10px] font-mono uppercase tracking-widest text-violet-300 font-bold">
             <Sparkles className="w-3.5 h-3.5" />
@@ -34,24 +30,23 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({ onOpenResume }) =>
           </div>
 
           <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white tracking-tight max-w-2xl mx-auto">
-            View my resume — opens instantly, no loading screens.
+            View my resume — opens instantly in a new tab.
           </h3>
 
           <p className="text-sm text-zinc-400 max-w-xl mx-auto font-normal leading-relaxed">
-            Official verified PDF document. Click below to open in a fullscreen viewer, download, or open in a new tab.
+            Official verified PDF document. Click below to open in a new tab or download.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-            {onOpenResume && (
-              <button
-                type="button"
-                onClick={onOpenResume}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-black font-semibold text-sm hover:bg-zinc-200 transition-all shadow-lg active:scale-[0.98]"
-              >
-                <FileText className="w-4 h-4" />
-                <span>View Resume</span>
-              </button>
-            )}
+            <a
+              href={PERSONAL_INFO.resumePdfUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-black font-semibold text-sm hover:bg-zinc-200 transition-all shadow-lg active:scale-[0.98]"
+            >
+              <FileText className="w-4 h-4" />
+              <span>View Resume</span>
+            </a>
             <a
               href={PERSONAL_INFO.resumePdfUrl}
               target="_blank"

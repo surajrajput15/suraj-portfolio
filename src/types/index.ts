@@ -52,14 +52,9 @@ export interface CaseStudy {
   screenshots: CaseStudyScreenshot[];
 }
 
-export interface SupportingCredential {
-  title: string;
-  period: string;
-  issuer: string;
-  topics: string[];
-  certificateUrl: string;
-  certificateId?: string;
-  certificateDriveUrl?: string;
+export interface CertificateRef {
+  label: string;
+  driveUrl: string;
 }
 
 export interface ExperienceItem {
@@ -72,10 +67,7 @@ export interface ExperienceItem {
   type: string;
   points: string[];
   technologies: string[];
-  certificateUrl?: string;
-  certificateId?: string;
-  certificateDriveUrl?: string;
-  supportingCredential?: SupportingCredential;
+  certificates?: CertificateRef[];
 }
 
 export interface EducationItem {
@@ -86,14 +78,4 @@ export interface EducationItem {
   cgpa?: string;
   percentage?: string;
   points?: string[];
-}
-
-export interface CertificateModalData {
-  title: string;
-  issuer: string;
-  date: string;
-  certificateId?: string;
-  file: string;
-  driveUrl?: string;
-  topics?: string[];
 }

@@ -8,11 +8,7 @@ import { ExperienceSection } from './components/sections/ExperienceSection';
 import { ResumeSection } from './components/sections/ResumeSection';
 import { ContactSection } from './components/sections/ContactSection';
 import { ProjectCaseStudyModal } from './components/sections/ProjectCaseStudyModal';
-import { ExperienceCredentialModal } from './components/ui/ExperienceCredentialModal';
-import { ResumeViewerModal } from './components/ui/ResumeViewerModal';
 import { useActiveSection } from './hooks/useActiveSection';
-import { PERSONAL_INFO, RESUME_LAST_UPDATED } from './data/portfolioData';
-import type { CertificateModalData } from './types';
 
 const SECTION_IDS = [
   'hero',
@@ -24,8 +20,6 @@ const SECTION_IDS = [
 
 export function App() {
   const [selectedCaseStudyId, setSelectedCaseStudyId] = useState<string | null>(null);
-  const [selectedCertificate, setSelectedCertificate] = useState<CertificateModalData | null>(null);
-  const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   const activeSection = useActiveSection(SECTION_IDS);
 
@@ -35,29 +29,6 @@ export function App() {
 
   const handleCloseCaseStudy = () => {
     setSelectedCaseStudyId(null);
-  };
-
-  const handleViewCertificate = (cert: CertificateModalData) => {
-    setSelectedCertificate(cert);
-  };
-
-  const handleCloseCertificate = () => {
-    setSelectedCertificate(null);
-  };
-
-  const handleOpenResume = () => {
-    setIsResumeOpen(true);
-  };
-
-  const handleCloseResume = () => {
-    setIsResumeOpen(false);
-  };
-
-  const handleExploreWork = () => {
-    const workElement = document.getElementById('work');
-    if (workElement) {
-      workElement.scrollIntoView({ behavior: 'smooth' });
-    }
   };
 
   return (
@@ -70,12 +41,12 @@ export function App() {
       </a>
 
       {/* Sticky Top Navigation */}
-      <Navbar activeSection={activeSection} onOpenResume={handleOpenResume} />
+      <Navbar activeSection={activeSection} />
 
       {/* Main Content Sections */}
       <main id="main-content" tabIndex={-1}>
         {/* 1. Hero */}
-        <HeroSection onExploreWork={handleExploreWork} onOpenResume={handleOpenResume} />
+        <HeroSection />
 
         {/* 2. Featured Tier A Projects */}
         <FeaturedProjectsSection onOpenCaseStudy={handleOpenCaseStudy} />
@@ -84,10 +55,10 @@ export function App() {
         <AdditionalProjectsSection />
 
         {/* 4. Work Experience Timeline (with inline certs) */}
-        <ExperienceSection onViewCertificate={handleViewCertificate} />
+        <ExperienceSection />
 
-        {/* 5. Interactive Resume Hub & Download */}
-        <ResumeSection onOpenResume={handleOpenResume} />
+        {/* 5. Resume Section */}
+        <ResumeSection />
 
         {/* 6. Contact Section */}
         <ContactSection />
@@ -100,20 +71,6 @@ export function App() {
       <ProjectCaseStudyModal
         caseStudyId={selectedCaseStudyId}
         onClose={handleCloseCaseStudy}
-      />
-
-      {/* Inline Experience Credential Modal */}
-      <ExperienceCredentialModal
-        data={selectedCertificate}
-        onClose={handleCloseCertificate}
-      />
-
-      {/* Resume Viewer Modal — opens instantly on click */}
-      <ResumeViewerModal
-        isOpen={isResumeOpen}
-        onClose={handleCloseResume}
-        resumeUrl={PERSONAL_INFO.resumePdfUrl}
-        lastUpdated={RESUME_LAST_UPDATED}
       />
     </div>
   );
