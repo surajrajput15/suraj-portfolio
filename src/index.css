@@ -127,3 +127,52 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Print-friendly styles — clean B&W resume when printed */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  /* Hide non-essential UI */
+  header,
+  footer,
+  .bg-grid-pattern,
+  nav,
+  button,
+  iframe {
+    display: none !important;
+  }
+
+  /* Force resume section to be the only visible content */
+  body * {
+    visibility: hidden;
+  }
+
+  #resume,
+  #resume * {
+    visibility: visible;
+  }
+
+  #resume {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  #resume * {
+    color: #000000 !important;
+    background: #ffffff !important;
+    border-color: #cccccc !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+}

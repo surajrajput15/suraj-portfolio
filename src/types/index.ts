@@ -100,7 +100,15 @@ export interface EducationItem {
   institution: string;
   period: string;
   location: string;
+  cgpa?: string;
+  percentage?: string;
   points?: string[];
+}
+
+export interface TopSkill {
+  name: string;
+  level: 'production' | 'working' | 'familiar';
+  category: 'stack' | 'ai' | 'database' | 'cloud';
 }
 
 export interface AICapability {

@@ -4,7 +4,8 @@ import type {
   ExperienceItem,
   CertificationItem,
   EducationItem,
-  AICapability
+  AICapability,
+  TopSkill
 } from '../types';
 
 export const PERSONAL_INFO = {
@@ -357,6 +358,7 @@ export const EDUCATION: EducationItem[] = [
     institution: 'Jagannath University',
     period: '2023 – 2027',
     location: 'Jaipur, Rajasthan',
+    cgpa: '8.4 / 10',
     points: [
       'Undergraduate coursework in Data Structures & Algorithms, Database Management Systems, Operating Systems, Web Technologies, and Software Engineering.',
       'Building production-oriented full-stack web applications and AI-driven platforms.'
@@ -375,3 +377,26 @@ export const EDUCATION: EducationItem[] = [
     location: 'Bihar',
   }
 ];
+
+export const RESUME_PITCH =
+  "Full Stack Developer building production-grade web applications and AI-powered platforms. I design type-safe architectures with React, Next.js, Node.js, PostgreSQL, and MongoDB — and ship authenticated LLM workflows on top of Groq and Gemini that solve real retention, learning, and commerce problems.";
+
+export const RESUME_STATS = {
+  projects: FEATURED_PROJECTS.length + ADDITIONAL_PROJECTS.length,
+  internships: EXPERIENCES.length,
+  certifications: CERTIFICATIONS.length,
+  cgpa: '8.4 / 10',
+} as const;
+
+export const TOP_SKILLS: TopSkill[] = [
+  { name: 'React', level: 'production', category: 'stack' },
+  { name: 'Next.js', level: 'production', category: 'stack' },
+  { name: 'TypeScript', level: 'production', category: 'stack' },
+  { name: 'Node.js', level: 'production', category: 'stack' },
+  { name: 'PostgreSQL', level: 'production', category: 'database' },
+  { name: 'MongoDB', level: 'production', category: 'database' },
+  { name: 'Groq AI', level: 'production', category: 'ai' },
+  { name: 'Gemini API', level: 'working', category: 'ai' },
+];
+
+export const RESUME_LAST_UPDATED = 'August 2026';
