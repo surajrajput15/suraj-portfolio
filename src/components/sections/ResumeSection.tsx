@@ -53,7 +53,7 @@ const PROJECT_IMPACT: Record<string, string[]> = {
 };
 
 export const ResumeSection: React.FC = () => {
-  const [viewMode, setViewMode] = useState<ResumeTab>('quick');
+  const [viewMode, setViewMode] = useState<ResumeTab>('pdf');
 
   const quickStats = [
     { label: 'Projects', value: RESUME_STATS.projects, accent: 'text-violet-300' },
