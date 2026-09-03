@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { HeroSection } from './components/sections/HeroSection';
@@ -16,7 +16,7 @@ import { CertificateViewerModal } from './components/ui/CertificateViewerModal';
 import { useActiveSection } from './hooks/useActiveSection';
 import type { CertificateModalData } from './types';
 
-const SECTION_IDS: readonly string[] = [
+const SECTION_IDS = [
   'hero',
   'about',
   'work',
@@ -26,14 +26,13 @@ const SECTION_IDS: readonly string[] = [
   'certifications',
   'resume',
   'contact'
-];
+] as const;
 
 export function App() {
   const [selectedCaseStudyId, setSelectedCaseStudyId] = useState<string | null>(null);
   const [selectedCertificate, setSelectedCertificate] = useState<CertificateModalData | null>(null);
 
-  const sectionIds = useMemo(() => [...SECTION_IDS], []);
-  const activeSection = useActiveSection(sectionIds);
+  const activeSection = useActiveSection(SECTION_IDS);
 
   const handleOpenCaseStudy = (caseStudyId: string) => {
     setSelectedCaseStudyId(caseStudyId);
@@ -60,11 +59,18 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-[#050505] text-[#F4F4F5] font-sans selection:bg-white selection:text-black">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:px-4 focus:py-2 focus:rounded-xl focus:bg-white focus:text-black focus:text-sm focus:font-semibold focus:shadow-2xl"
+      >
+        Skip to main content
+      </a>
+
       {/* Sticky Top Navigation */}
       <Navbar activeSection={activeSection} />
 
       {/* Main Content Sections */}
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1}>
         {/* 1. Hero */}
         <HeroSection onExploreWork={handleExploreWork} />
 

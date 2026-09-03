@@ -34,14 +34,36 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     return () => ro.disconnect();
   }, [isScrolled]);
 
-  // Close mobile menu on Esc key
+  // Close mobile menu on Esc key + trap focus while open
   useEffect(() => {
+    if (!mobileMenuOpen) return;
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setMobileMenuOpen(false);
+      if (e.key === 'Escape') {
+        setMobileMenuOpen(false);
+        return;
+      }
+      if (e.key === 'Tab' && drawerRef.current) {
+        const focusables = drawerRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (!first || !last) return;
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
-    if (mobileMenuOpen) {
-      window.addEventListener('keydown', handleKeyDown);
-    }
+    window.addEventListener('keydown', handleKeyDown);
+    setTimeout(() => {
+      const first = drawerRef.current?.querySelector<HTMLElement>('a[href]');
+      first?.focus();
+    }, 50);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [mobileMenuOpen]);
 
@@ -55,6 +77,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     { label: 'Resume', href: '#resume' },
     { label: 'Contact', href: '#contact' },
   ];
+
+  const drawerRef = useRef<HTMLDivElement>(null);
 
   return (
     <header
@@ -143,8 +167,12 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div
+          ref={drawerRef}
           className="md:hidden fixed inset-x-0 bg-[#08080A]/95 backdrop-blur-xl border-b border-white/[0.1] px-6 py-6 transition-all animate-fade-in shadow-2xl"
           style={{ top: headerHeight }}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site navigation"
         >
           <div className="flex flex-col gap-3">
             {navLinks.map((link) => {

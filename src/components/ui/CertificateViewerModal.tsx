@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { X, Download, ExternalLink, Award, CheckCircle2 } from 'lucide-react';
 import type { CertificateModalData } from '../../types';
+import { useBodyScrollLock } from '../../hooks/useBodyScrollLock';
 
 interface CertificateViewerModalProps {
   data: CertificateModalData | null;
@@ -40,15 +41,15 @@ export const CertificateViewerModal: React.FC<CertificateViewerModalProps> = ({
 
     if (data) {
       window.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
       setTimeout(() => closeButtonRef.current?.focus(), 50);
     }
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
     };
   }, [data, onClose]);
+
+  useBodyScrollLock(data !== null);
 
   if (!data) return null;
 
