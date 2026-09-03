@@ -29,8 +29,8 @@ export const AIArchitectureSection: React.FC<AIArchitectureSectionProps> = ({ on
         {/* AI Capabilities Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {AI_CAPABILITIES.map((capability, index) => {
-            const icons = [Zap, Brain, Layers];
-            const Icon = icons[index % icons.length];
+            const icons = [Zap, Brain, Layers] as const;
+            const Icon = icons[index % icons.length] ?? Zap;
 
             return (
               <div

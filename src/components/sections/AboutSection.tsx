@@ -11,8 +11,16 @@ export const AboutSection: React.FC = () => {
           <div className="lg:col-span-5 space-y-4">
             <div className="p-6 rounded-3xl bg-[#09090C] border border-white/[0.1] space-y-6">
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-[#121217] border border-white/[0.12] flex items-center justify-center font-display font-extrabold text-xl text-white">
-                  SB
+                <div className="relative w-14 h-14 rounded-full p-[2px] bg-gradient-to-tr from-violet-400 via-fuchsia-400 to-violet-600 shrink-0">
+                  <img
+                    src="/profile.jpg"
+                    alt={PERSONAL_INFO.name}
+                    className="w-full h-full rounded-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                    width="56"
+                    height="56"
+                  />
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-lg text-white">

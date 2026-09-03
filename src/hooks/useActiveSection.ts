@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export function useActiveSection(sectionIds: string[]) {
-  const [activeSection, setActiveSection] = useState<string>(sectionIds[0] || 'hero');
+  const [activeSection, setActiveSection] = useState<string>(sectionIds[0] ?? 'hero');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -9,6 +9,7 @@ export function useActiveSection(sectionIds: string[]) {
 
       for (let i = sectionIds.length - 1; i >= 0; i--) {
         const id = sectionIds[i];
+        if (!id) continue;
         const element = document.getElementById(id);
         if (element) {
           const top = element.offsetTop;

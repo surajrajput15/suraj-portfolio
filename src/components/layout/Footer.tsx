@@ -90,7 +90,7 @@ export const Footer: React.FC = () => {
               <button
                 type="button"
                 onClick={() => copy(PERSONAL_INFO.email)}
-                className="w-full flex items-center justify-between text-left text-zinc-400 hover:text-white group transition-colors pt-1"
+                className="w-full flex items-center justify-between text-left text-zinc-400 hover:text-white group transition-colors"
                 aria-label="Copy email address"
               >
                 <span className="flex items-center gap-1.5 truncate">

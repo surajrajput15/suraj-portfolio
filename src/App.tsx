@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { HeroSection } from './components/sections/HeroSection';
@@ -16,7 +16,7 @@ import { CertificateViewerModal } from './components/ui/CertificateViewerModal';
 import { useActiveSection } from './hooks/useActiveSection';
 import type { CertificateModalData } from './types';
 
-const SECTION_IDS = [
+const SECTION_IDS: readonly string[] = [
   'hero',
   'about',
   'work',
@@ -32,7 +32,8 @@ export function App() {
   const [selectedCaseStudyId, setSelectedCaseStudyId] = useState<string | null>(null);
   const [selectedCertificate, setSelectedCertificate] = useState<CertificateModalData | null>(null);
 
-  const activeSection = useActiveSection(SECTION_IDS);
+  const sectionIds = useMemo(() => [...SECTION_IDS], []);
+  const activeSection = useActiveSection(sectionIds);
 
   const handleOpenCaseStudy = (caseStudyId: string) => {
     setSelectedCaseStudyId(caseStudyId);

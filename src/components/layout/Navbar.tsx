@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ArrowUpRight, FileText } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 
@@ -10,6 +10,8 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+  const [headerHeight, setHeaderHeight] = useState(60);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +20,19 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!headerRef.current) return;
+    const updateHeight = () => {
+      if (headerRef.current) {
+        setHeaderHeight(headerRef.current.offsetHeight);
+      }
+    };
+    updateHeight();
+    const ro = new ResizeObserver(updateHeight);
+    ro.observe(headerRef.current);
+    return () => ro.disconnect();
+  }, [isScrolled]);
 
   // Close mobile menu on Esc key
   useEffect(() => {
@@ -43,6 +58,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
   return (
     <header
+      ref={headerRef}
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
           ? 'bg-[#050505]/85 backdrop-blur-md border-b border-white/[0.08] py-3.5 shadow-2xl'
@@ -78,6 +94,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                 <a
                   key={link.href}
                   href={link.href}
+                  aria-current={isActive ? 'page' : undefined}
                   className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-150 ${
                     isActive
                       ? 'bg-white text-black font-semibold shadow-sm'
@@ -125,7 +142,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[60px] bg-[#08080A]/95 backdrop-blur-xl border-b border-white/[0.1] px-6 py-6 transition-all animate-fade-in shadow-2xl">
+        <div
+          className="md:hidden fixed inset-x-0 bg-[#08080A]/95 backdrop-blur-xl border-b border-white/[0.1] px-6 py-6 transition-all animate-fade-in shadow-2xl"
+          style={{ top: headerHeight }}
+        >
           <div className="flex flex-col gap-3">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
@@ -134,6 +154,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
+                  aria-current={isActive ? 'page' : undefined}
                   className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                     isActive
                       ? 'bg-white text-black font-semibold'

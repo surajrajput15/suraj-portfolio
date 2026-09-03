@@ -220,7 +220,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
         caption: 'Categorized catalog showcasing server-synced pricing, image previews, and stock status.'
       },
       {
-        url: '/projects/cartify/mobile-view.jpeg',
+        url: '/projects/cartify/mobile-view.png',
         title: 'Mobile Checkout Experience',
         caption: 'Mobile-first navigation, responsive product drawers, and streamlined checkout.'
       }

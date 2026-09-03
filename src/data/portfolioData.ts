@@ -13,7 +13,7 @@ export const PERSONAL_INFO = {
   tagline: 'Building production-oriented web applications and AI-powered products with modern full-stack architectures, clean typography, and robust application security.',
   about: `I am a Full Stack Developer and Computer Science undergraduate building production-oriented web applications and AI-powered products. My experience covers full-stack architecture, REST APIs, relational and document databases, and cloud deployments with React, Next.js, Node.js, PostgreSQL, and MongoDB. I focus on practical AI application development—integrating models via Groq and Google Gemini into authenticated user workflows—with disciplined application security and performance optimization.`,
   email: 'surajdona2005@gmail.com',
-  phone: '+91 7209690361',
+  phone: '+917209690361',
   location: 'Jaipur, Rajasthan',
   status: 'Open to Full Stack & AI Engineering Opportunities',
   githubUrl: 'https://github.com/surajrajput15',
@@ -129,7 +129,7 @@ export const FEATURED_PROJECTS: Project[] = [
     gallery: [
       '/projects/cartify/home.png',
       '/projects/cartify/products.png',
-      '/projects/cartify/mobile-view.jpeg'
+      '/projects/cartify/mobile-view.png'
     ],
     liveUrl: 'https://cartify-hub.vercel.app/',
     githubUrl: 'https://github.com/surajrajput15/CARTIFY-APP',
@@ -251,7 +251,6 @@ export const EXPERIENCES: ExperienceItem[] = [
     location: 'Jaipur / Virtual',
     type: 'Internship',
     certificateUrl: '/certificates/edunet-ai-internship-6-week.pdf',
-    certificateId: 'STU681afaf17b2831746598641',
     points: [
       'Completed a 6-week internship focused on Artificial Intelligence, Agentic AI, Cloud Computing, Cybersecurity, and Quantum Computing, with hands-on exposure to IBM SkillsBuild, IBM Cloud, and IBM BOB.',
       'Developed an industry-relevant project in Artificial Intelligence and Cloud Computing, applying emerging technology concepts to a practical use case.',

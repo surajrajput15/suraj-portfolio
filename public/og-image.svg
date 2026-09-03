@@ -2,24 +2,37 @@
   <defs>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;family=Outfit:wght@700;800&amp;display=swap');
-      .title { font-family: 'Outfit', 'Inter', -apple-system, sans-serif; font-weight: 800; font-size: 64px; fill: #FFFFFF; letter-spacing: -0.03em; }
-      .role { font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 26px; fill: #60A5FA; letter-spacing: -0.01em; }
-      .tagline { font-family: 'Inter', -apple-system, sans-serif; font-weight: 400; font-size: 22px; fill: #A1A1AA; }
-      .badge-text { font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 14px; fill: #34D399; }
-      .meta-label { font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 13px; fill: #71717A; }
-      .meta-val { font-family: 'Inter', -apple-system, sans-serif; font-weight: 600; font-size: 15px; fill: #E4E4E7; }
+      .title { font-family: 'Outfit', 'Inter', -apple-system, sans-serif; font-weight: 800; font-size: 56px; fill: #FFFFFF; letter-spacing: -0.03em; }
+      .role { font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 24px; fill: #A78BFA; letter-spacing: -0.01em; }
+      .tagline { font-family: 'Inter', -apple-system, sans-serif; font-weight: 400; font-size: 20px; fill: #A1A1AA; }
+      .badge-text { font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 13px; fill: #34D399; }
+      .meta-label { font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 12px; fill: #71717A; }
+      .meta-val { font-family: 'Inter', -apple-system, sans-serif; font-weight: 600; font-size: 14px; fill: #E4E4E7; }
+      .photo-initials { font-family: 'Outfit', 'Inter', -apple-system, sans-serif; font-weight: 800; font-size: 56px; fill: #FFFFFF; }
     </style>
     <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#070709"/>
+      <stop offset="0%" stop-color="#08080B"/>
       <stop offset="100%" stop-color="#020203"/>
     </linearGradient>
     <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#0E0E13"/>
       <stop offset="100%" stop-color="#07070A"/>
     </linearGradient>
+    <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#A78BFA"/>
+      <stop offset="50%" stop-color="#E879F9"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <radialGradient id="photoGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="rgba(167,139,250,0.45)"/>
+      <stop offset="100%" stop-color="rgba(167,139,250,0)"/>
+    </radialGradient>
     <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
       <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.025)" stroke-width="1"/>
     </pattern>
+    <clipPath id="photoClip">
+      <circle cx="1010" cy="155" r="80"/>
+    </clipPath>
   </defs>
 
   <!-- Background Base -->
@@ -29,55 +42,66 @@
   <!-- Outer Border -->
   <rect x="24" y="24" width="1152" height="582" rx="24" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1.5"/>
 
-  <!-- Content Card Container -->
+  <!-- Photo Glow Halo (right side) -->
+  <circle cx="1010" cy="155" r="160" fill="url(#photoGlow)"/>
+
+  <!-- Photo with Violet Gradient Ring (right) -->
+  <g>
+    <!-- Outer ring -->
+    <circle cx="1010" cy="155" r="86" fill="url(#ringGrad)"/>
+    <!-- Inner background (dark) -->
+    <circle cx="1010" cy="155" r="82" fill="#0A0A0C"/>
+    <!-- Photo placeholder: gradient fill with initials -->
+    <g clip-path="url(#photoClip)">
+      <rect x="930" y="75" width="160" height="160" fill="#18181B"/>
+      <text x="1010" y="172" text-anchor="middle" dominant-baseline="middle" class="photo-initials">SB</text>
+    </g>
+  </g>
+
+  <!-- Content Container -->
   <g transform="translate(80, 80)">
-    <!-- Top Monogram & Status Pill -->
+    <!-- Monogram & Status Pill -->
     <g transform="translate(0, 0)">
-      <!-- Monogram Box -->
       <rect width="52" height="52" rx="14" fill="#121218" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
       <text x="26" y="32" text-anchor="middle" dominant-baseline="middle" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-weight="800" font-size="20">SB</text>
-      
-      <!-- Status Pill -->
+
       <g transform="translate(68, 8)">
-        <rect width="330" height="36" rx="18" fill="rgba(16, 185, 129, 0.08)" stroke="rgba(16, 185, 129, 0.25)" stroke-width="1"/>
+        <rect width="320" height="36" rx="18" fill="rgba(16, 185, 129, 0.08)" stroke="rgba(16, 185, 129, 0.25)" stroke-width="1"/>
         <circle cx="20" cy="18" r="4" fill="#10B981"/>
         <text x="34" y="22" class="badge-text">Open to Engineering Roles</text>
       </g>
     </g>
 
     <!-- Main Title -->
-    <text x="0" y="145" class="title">Suraj Bhan Pratap Singh</text>
-    
+    <text x="0" y="220" class="title">Suraj Bhan Pratap Singh</text>
+
     <!-- Role Subtitle -->
-    <text x="0" y="195" class="role">Full Stack Developer + AI</text>
+    <text x="0" y="265" class="role">Full Stack Developer + AI</text>
 
     <!-- Value Tagline -->
-    <text x="0" y="250" class="tagline">Building production-oriented web applications and AI-powered products.</text>
+    <text x="0" y="320" class="tagline">Building production-oriented web applications and AI-powered products.</text>
 
     <!-- Divider Line -->
-    <line x1="0" y1="305" x2="1040" y2="305" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+    <line x1="0" y1="370" x2="1040" y2="370" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
 
     <!-- Bottom Highlights Grid -->
-    <g transform="translate(0, 335)">
-      <!-- Card 1 -->
+    <g transform="translate(0, 400)">
       <g transform="translate(0, 0)">
-        <rect width="320" height="90" rx="16" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <rect width="333" height="95" rx="16" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
         <text x="20" y="32" class="meta-label">CORE PROJECTS</text>
-        <text x="20" y="62" class="meta-val">StudySnap · Cartify · Notes Nexus</text>
+        <text x="20" y="65" class="meta-val">StudySnap · Cartify · Notes Nexus</text>
       </g>
 
-      <!-- Card 2 -->
-      <g transform="translate(360, 0)">
-        <rect width="320" height="90" rx="16" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <g transform="translate(353, 0)">
+        <rect width="333" height="95" rx="16" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
         <text x="20" y="32" class="meta-label">FULL STACK ARCHITECTURE</text>
-        <text x="20" y="62" class="meta-val">React · Next.js · Node · PostgreSQL</text>
+        <text x="20" y="65" class="meta-val">React · Next.js · Node · PostgreSQL</text>
       </g>
 
-      <!-- Card 3 -->
-      <g transform="translate(720, 0)">
-        <rect width="320" height="90" rx="16" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <g transform="translate(706, 0)">
+        <rect width="334" height="95" rx="16" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
         <text x="20" y="32" class="meta-label">AI WORKFLOWS</text>
-        <text x="20" y="62" class="meta-val">Groq LLaMA-3.1 · Gemini APIs</text>
+        <text x="20" y="65" class="meta-val">Groq LLaMA-3.1 · Gemini APIs</text>
       </g>
     </g>
   </g>

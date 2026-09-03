@@ -8,11 +8,20 @@ interface ProjectCaseStudyModalProps {
   onClose: () => void;
 }
 
+type TabId = 'overview' | 'architecture' | 'engineering' | 'gallery';
+
+const TABS: { id: TabId; label: string; icon: typeof Sparkles }[] = [
+  { id: 'overview', label: 'Overview & Features', icon: Sparkles },
+  { id: 'architecture', label: 'System Architecture', icon: Layers },
+  { id: 'engineering', label: 'Security & Engineering', icon: ShieldCheck },
+  { id: 'gallery', label: 'Screenshots & Gallery', icon: ImageIcon },
+];
+
 export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
   caseStudyId,
   onClose
 }) => {
-  const [activeTab, setActiveTab] = useState<'overview' | 'architecture' | 'engineering' | 'gallery'>('overview');
+  const [activeTab, setActiveTab] = useState<TabId>('overview');
 
   const modalRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -33,6 +42,7 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
         if (focusables.length === 0) return;
         const first = focusables[0];
         const last = focusables[focusables.length - 1];
+        if (!first || !last) return;
         if (e.shiftKey && document.activeElement === first) {
           e.preventDefault();
           last.focus();
@@ -99,19 +109,14 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
 
         {/* Tab Navigation */}
         <div className="px-6 sm:px-8 bg-[#09090C] border-b border-white/[0.06] flex gap-2 overflow-x-auto py-2">
-          {[
-            { id: 'overview', label: 'Overview & Features', icon: Sparkles },
-            { id: 'architecture', label: 'System Architecture', icon: Layers },
-            { id: 'engineering', label: 'Security & Engineering', icon: ShieldCheck },
-            { id: 'gallery', label: 'Screenshots & Gallery', icon: ImageIcon },
-          ].map((tab) => {
+          {TABS.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
                 type="button"
-                onClick={() => setActiveTab(tab.id as any)}
+                onClick={() => setActiveTab(tab.id)}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-medium inline-flex items-center gap-2 whitespace-nowrap transition-all ${
                   isActive
                     ? 'bg-white text-black font-semibold'
