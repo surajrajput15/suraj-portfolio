@@ -9,44 +9,6 @@ export interface ResponsiveEntry {
 }
 
 export const RESPONSIVE_IMAGES: Record<string, ResponsiveEntry> = {
-  "/og-image.png": {
-    "widths": [
-      640,
-      1024
-    ],
-    "avif": [
-      "/og-image-640.avif",
-      "/og-image-1024.avif"
-    ],
-    "webp": [
-      "/og-image-640.webp",
-      "/og-image-1024.webp"
-    ],
-    "fallback": [
-      "/og-image-640.png",
-      "/og-image-1024.png"
-    ],
-    "originalWidth": 1200
-  },
-  "/profile.jpg": {
-    "widths": [
-      640,
-      1024
-    ],
-    "avif": [
-      "/profile-640.avif",
-      "/profile-1024.avif"
-    ],
-    "webp": [
-      "/profile-640.webp",
-      "/profile-1024.webp"
-    ],
-    "fallback": [
-      "/profile-640.jpg",
-      "/profile-1024.jpg"
-    ],
-    "originalWidth": 1072
-  },
   "/projects/ai-study-buddy/screenshot.png": {
     "widths": [
       640,

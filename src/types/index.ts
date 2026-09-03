@@ -52,13 +52,6 @@ export interface CaseStudy {
   screenshots: CaseStudyScreenshot[];
 }
 
-export interface SkillCategory {
-  title: string;
-  skills: string[];
-  iconName: string;
-  highlight?: boolean;
-}
-
 export interface SupportingCredential {
   title: string;
   period: string;
@@ -66,6 +59,7 @@ export interface SupportingCredential {
   topics: string[];
   certificateUrl: string;
   certificateId?: string;
+  certificateDriveUrl?: string;
 }
 
 export interface ExperienceItem {
@@ -80,19 +74,8 @@ export interface ExperienceItem {
   technologies: string[];
   certificateUrl?: string;
   certificateId?: string;
+  certificateDriveUrl?: string;
   supportingCredential?: SupportingCredential;
-}
-
-export interface CertificationItem {
-  id: string;
-  title: string;
-  issuer: string;
-  year: string;
-  date?: string;
-  description?: string;
-  certificateUrl?: string;
-  certificateId?: string;
-  topics?: string[];
 }
 
 export interface EducationItem {
@@ -105,27 +88,12 @@ export interface EducationItem {
   points?: string[];
 }
 
-export interface TopSkill {
-  name: string;
-  level: 'production' | 'working' | 'familiar';
-  category: 'stack' | 'ai' | 'database' | 'cloud';
-}
-
-export interface AICapability {
-  id: string;
-  title: string;
-  description: string;
-  technologies: string[];
-  projectProof: string;
-  projectProofName: string;
-  caseStudyId?: string;
-}
-
 export interface CertificateModalData {
   title: string;
   issuer: string;
   date: string;
   certificateId?: string;
   file: string;
+  driveUrl?: string;
   topics?: string[];
 }

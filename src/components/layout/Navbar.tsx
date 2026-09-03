@@ -7,7 +7,7 @@ interface NavbarProps {
   onOpenResume?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
+export const Navbar: React.FC<NavbarProps> = ({ activeSection, onOpenResume }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
@@ -69,11 +69,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
   const navLinks = [
     { label: 'Work', href: '#work' },
-    { label: 'About', href: '#about' },
-    { label: 'AI Systems', href: '#ai-systems' },
-    { label: 'Skills', href: '#skills' },
     { label: 'Experience', href: '#experience' },
-    { label: 'Certifications', href: '#certifications' },
     { label: 'Resume', href: '#resume' },
     { label: 'Contact', href: '#contact' },
   ];
@@ -133,13 +129,24 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
           {/* Right Action / Resume Button */}
           <div className="hidden md:flex items-center gap-3">
-            <a
-              href="#resume"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#111115] hover:bg-[#18181F] text-white border border-white/[0.12] hover:border-white/[0.25] transition-all"
-            >
-              <FileText className="w-3.5 h-3.5 text-zinc-400" />
-              <span>Resume</span>
-            </a>
+            {onOpenResume ? (
+              <button
+                type="button"
+                onClick={onOpenResume}
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#111115] hover:bg-[#18181F] text-white border border-white/[0.12] hover:border-white/[0.25] transition-all active:scale-[0.98]"
+              >
+                <FileText className="w-3.5 h-3.5 text-zinc-400" />
+                <span>Resume</span>
+              </button>
+            ) : (
+              <a
+                href="#resume"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#111115] hover:bg-[#18181F] text-white border border-white/[0.12] hover:border-white/[0.25] transition-all"
+              >
+                <FileText className="w-3.5 h-3.5 text-zinc-400" />
+                <span>Resume</span>
+              </a>
+            )}
             <a
               href={PERSONAL_INFO.githubUrl}
               target="_blank"
@@ -194,14 +201,28 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               );
             })}
             <div className="pt-4 mt-2 border-t border-white/[0.08] flex flex-col gap-2.5">
-              <a
-                href="#resume"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-medium bg-white text-black font-semibold"
-              >
-                <FileText className="w-4 h-4" />
-                <span>View & Download Resume</span>
-              </a>
+              {onOpenResume ? (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpenResume();
+                  }}
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-medium bg-white text-black font-semibold active:scale-[0.98]"
+                >
+                  <FileText className="w-4 h-4" />
+                  <span>View Resume</span>
+                </button>
+              ) : (
+                <a
+                  href="#resume"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-medium bg-white text-black font-semibold"
+                >
+                  <FileText className="w-4 h-4" />
+                  <span>View & Download Resume</span>
+                </a>
+              )}
               <a
                 href={PERSONAL_INFO.githubUrl}
                 target="_blank"

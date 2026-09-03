@@ -23,7 +23,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ onViewCert
             </h2>
           </div>
           <p className="text-sm text-zinc-400 max-w-md font-normal leading-relaxed">
-            Verified internship and development history backed by formal credential records and project deliverables.
+            Verified internship and development history with formal credential records.
           </p>
         </div>
 
@@ -70,25 +70,6 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ onViewCert
                         <span>{exp.location}</span>
                       </div>
                     </div>
-
-                    {exp.certificateUrl && (
-                      <button
-                        type="button"
-                        onClick={() =>
-                          onViewCertificate({
-                            title: `${exp.role} Certificate`,
-                            issuer: exp.organization || exp.company,
-                            date: exp.period,
-                            certificateId: exp.certificateId,
-                            file: exp.certificateUrl!
-                          })
-                        }
-                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium bg-white/[0.05] hover:bg-white/[0.1] text-zinc-200 hover:text-white border border-white/[0.1] transition-all"
-                      >
-                        <Award className="w-3.5 h-3.5 text-amber-400" />
-                        <span>View Certificate ↗</span>
-                      </button>
-                    )}
                   </div>
                 </div>
 
@@ -109,7 +90,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ onViewCert
                 {exp.supportingCredential && (
                   <div className="p-4 rounded-xl bg-[#0F0F14] border border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div className="space-y-1">
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <span className="text-[10px] font-mono uppercase tracking-wider text-violet-400 font-semibold px-2 py-0.5 rounded bg-violet-500/10 border border-violet-500/20">
                           Supporting Credential
                         </span>
@@ -132,7 +113,8 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ onViewCert
                           issuer: exp.supportingCredential!.issuer,
                           date: exp.supportingCredential!.period,
                           certificateId: exp.supportingCredential!.certificateId,
-                          file: exp.supportingCredential!.certificateUrl
+                          file: exp.supportingCredential!.certificateUrl,
+                          driveUrl: exp.supportingCredential!.certificateDriveUrl
                         })
                       }
                       className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium bg-white/[0.06] hover:bg-white/[0.12] text-zinc-200 hover:text-white border border-white/[0.1] transition-all self-start sm:self-auto shrink-0"
@@ -154,6 +136,41 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ onViewCert
                     </span>
                   ))}
                 </div>
+
+                {/* Certificate actions — bottom of card */}
+                {exp.certificateUrl && (
+                  <div className="pt-3 mt-1 border-t border-white/[0.06] flex flex-wrap items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        onViewCertificate({
+                          title: `${exp.role} — Certificate`,
+                          issuer: exp.organization || exp.company,
+                          date: exp.period,
+                          certificateId: exp.certificateId,
+                          file: exp.certificateUrl!,
+                          driveUrl: exp.certificateDriveUrl
+                        })
+                      }
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-medium bg-white text-black hover:bg-zinc-200 transition-all shadow-sm active:scale-95"
+                    >
+                      <Award className="w-3.5 h-3.5" />
+                      <span>View Certificate</span>
+                    </button>
+
+                    {exp.certificateDriveUrl && (
+                      <a
+                        href={exp.certificateDriveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-white/[0.05] hover:bg-white/[0.1] text-zinc-200 hover:text-white border border-white/[0.1] transition-all"
+                      >
+                        <span>Open in Drive</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           ))}

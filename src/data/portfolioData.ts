@@ -1,18 +1,12 @@
 import type {
   Project,
-  SkillCategory,
   ExperienceItem,
-  CertificationItem,
   EducationItem,
-  AICapability,
-  TopSkill
 } from '../types';
 
 export const PERSONAL_INFO = {
   name: 'Suraj Bhan Pratap Singh',
   positioning: 'Full Stack Developer + AI',
-  tagline: 'Building production-oriented web applications and AI-powered products with modern full-stack architectures, clean typography, and robust application security.',
-  about: `I am a Full Stack Developer and Computer Science undergraduate building production-oriented web applications and AI-powered products. My experience covers full-stack architecture, REST APIs, relational and document databases, and cloud deployments with React, Next.js, Node.js, PostgreSQL, and MongoDB. I focus on practical AI application development—integrating models via Groq and Google Gemini into authenticated user workflows—with disciplined application security and performance optimization.`,
   email: 'surajdona2005@gmail.com',
   phone: '+917209690361',
   location: 'Jaipur, Rajasthan',
@@ -20,49 +14,7 @@ export const PERSONAL_INFO = {
   githubUrl: 'https://github.com/surajrajput15',
   linkedinUrl: 'https://www.linkedin.com/in/suraj-bhan-pratap-singh-891727293',
   resumePdfUrl: '/Suraj_Bhan_Pratap_Singh_Resume.pdf',
-  quickStats: [
-    { label: 'Core Focus', value: 'Full Stack + AI' },
-    { label: 'Frontend & Backend', value: 'React / Next.js / Node.js' },
-    { label: 'Databases & Cache', value: 'PostgreSQL / MongoDB / Redis' },
-    { label: 'AI Integrations', value: 'Groq / Gemini APIs' },
-  ]
 };
-
-export const AI_CAPABILITIES: AICapability[] = [
-  {
-    id: 'groq-llama-pipeline',
-    title: 'LLM Inference & Tutoring Workflows',
-    description: 'Integrated Groq Cloud LLaMA-3.1 models for note summarization, interactive tutoring, and MCQ quiz generation through authenticated APIs.',
-    technologies: ['Groq API', 'LLaMA-3.1', 'Prompt Engineering', 'Structured JSON Output'],
-    projectProof: 'Implemented in StudySnap for AI tutoring, summarization, and automated quiz generation from notes.',
-    projectProofName: 'StudySnap',
-    caseStudyId: 'studysnap'
-  },
-  {
-    id: 'gemini-study-aids',
-    title: 'Generative Study Aids & Flashcards',
-    description: 'Integrated the Google Gemini API to extract concept summaries and generate on-demand study flashcards from text materials.',
-    technologies: ['Google Gemini API', 'Generative AI', 'Python / Serverless', 'REST APIs'],
-    projectProof: 'Powering bulleted summarization and flashcard generation in Notes Nexus Labs.',
-    projectProofName: 'Notes Nexus Labs',
-  },
-  {
-    id: 'agentic-ai-workflows',
-    title: 'AI & Emerging Technologies Training',
-    description: 'Completed a 6-week internship program exploring Artificial Intelligence, Agentic AI, Cloud Computing, Cybersecurity, and Quantum Computing on IBM platforms.',
-    technologies: ['Artificial Intelligence', 'Agentic AI Concepts', 'IBM Cloud', 'Cybersecurity', 'IBM SkillsBuild'],
-    projectProof: 'Documented in the Edunet Foundation / IBM SkillsBuild internship deliverables.',
-    projectProofName: 'IBM SkillsBuild Internship',
-  },
-  {
-    id: 'agentic-rag-research',
-    title: 'Agentic Research Agent with RAG',
-    description: 'Architected an agentic AI research assistant using IBM Granite foundation models orchestrated through Langflow, combining retrieval-augmented generation (RAG) with structured literature and document analysis workflows.',
-    technologies: ['IBM Granite', 'IBM watsonx.ai', 'Langflow', 'RAG', 'Agentic AI'],
-    projectProof: 'Built as the ResearchGPT project under the IBM SkillsBuild / AICTE 2026 program.',
-    projectProofName: 'ResearchGPT',
-  }
-];
 
 export const FEATURED_PROJECTS: Project[] = [
   {
@@ -202,46 +154,6 @@ export const ADDITIONAL_PROJECTS: Project[] = [
   }
 ];
 
-export const SKILL_CATEGORIES: SkillCategory[] = [
-  {
-    title: 'Full Stack & Frameworks',
-    iconName: 'Layout',
-    skills: ['React', 'Next.js', 'Node.js', 'Express.js', 'REST APIs', 'HTML5', 'CSS3', 'Bootstrap'],
-    highlight: true
-  },
-  {
-    title: 'Programming Languages',
-    iconName: 'Code',
-    skills: ['JavaScript', 'TypeScript', 'Python', 'SQL']
-  },
-  {
-    title: 'Artificial Intelligence',
-    iconName: 'Cpu',
-    skills: ['Groq', 'Google Gemini', 'AI Application Development', 'Prompt Engineering', 'Agentic AI'],
-    highlight: true
-  },
-  {
-    title: 'Data & Storage',
-    iconName: 'Database',
-    skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'Drizzle ORM', 'Mongoose', 'Upstash Redis']
-  },
-  {
-    title: 'Cloud & Infrastructure',
-    iconName: 'Cloud',
-    skills: ['IBM Cloud', 'Vercel', 'Render', 'Neon', 'Upstash Redis']
-  },
-  {
-    title: 'Security & Authentication',
-    iconName: 'ShieldCheck',
-    skills: ['Clerk', 'JWT', 'Google OAuth', 'Helmet', 'CORS', 'Rate Limiting']
-  },
-  {
-    title: 'Tools & Workflow',
-    iconName: 'Terminal',
-    skills: ['Git', 'GitHub', 'Postman', 'VS Code']
-  }
-];
-
 export const EXPERIENCES: ExperienceItem[] = [
   {
     id: 'edunet-ibm',
@@ -251,7 +163,8 @@ export const EXPERIENCES: ExperienceItem[] = [
     period: '11 May 2026 – 21 June 2026',
     location: 'Jaipur / Virtual',
     type: 'Internship',
-    certificateUrl: '/certificates/edunet-ai-internship-6-week.pdf',
+    certificateUrl: 'https://drive.google.com/file/d/1HQZiZGNvkKlKQxNDCIlG9PI9ULKCFi2B/preview',
+    certificateDriveUrl: 'https://drive.google.com/file/d/1HQZiZGNvkKlKQxNDCIlG9PI9ULKCFi2B/view?usp=sharing',
     points: [
       'Completed a 6-week internship focused on Artificial Intelligence, Agentic AI, Cloud Computing, Cybersecurity, and Quantum Computing, with hands-on exposure to IBM SkillsBuild, IBM Cloud, and IBM BOB.',
       'Developed an industry-relevant project in Artificial Intelligence and Cloud Computing, applying emerging technology concepts to a practical use case.',
@@ -259,12 +172,12 @@ export const EXPERIENCES: ExperienceItem[] = [
     ],
     technologies: ['Artificial Intelligence', 'Agentic AI', 'Cloud Computing', 'Cybersecurity', 'IBM SkillsBuild', 'IBM Cloud'],
     supportingCredential: {
-      title: '4-week Emerging Technologies Internship',
-      period: '15 May 2026 – 12 June 2026',
+      title: 'Emerging Technologies (4-Week) — Certificate 2',
+      period: 'May – June 2026',
       issuer: 'Edunet Foundation · AICTE / IBM SkillsBuild',
-      topics: ['Agentic AI', 'Cyber Security', 'Quantum Computing', 'IBM Cloud'],
-      certificateUrl: '/certificates/edunet-emerging-technologies-4-week.pdf',
-      certificateId: 'INTERNSHIP_177549002069d3d3e4f3903'
+      topics: ['Agentic AI', 'Cybersecurity', 'Quantum Computing', 'IBM Cloud'],
+      certificateUrl: 'https://drive.google.com/file/d/1tKWzr-TlaMmF-ZAzmxnudhp18DkkTknz/preview',
+      certificateDriveUrl: 'https://drive.google.com/file/d/1tKWzr-TlaMmF-ZAzmxnudhp18DkkTknz/view?usp=sharing',
     }
   },
   {
@@ -275,80 +188,12 @@ export const EXPERIENCES: ExperienceItem[] = [
     period: '11 December 2025 – 24 January 2026',
     location: 'Jaipur / Virtual',
     type: 'Internship',
-    certificateUrl: '/certificates/apexplanet-web-development-internship.pdf',
-    certificateId: 'APSPL2524962',
+    certificateUrl: 'https://drive.google.com/file/d/1GyYFQDOGHaqfdZNNbTuKY1XpNmJlgF13/preview',
+    certificateDriveUrl: 'https://drive.google.com/file/d/1GyYFQDOGHaqfdZNNbTuKY1XpNmJlgF13/view?usp=sharing',
     points: [
       'Completed a project-based internship applying HTML, CSS, and JavaScript through practical frontend development work.'
     ],
     technologies: ['HTML', 'CSS', 'JavaScript', 'Frontend Development']
-  }
-];
-
-export const CERTIFICATIONS: CertificationItem[] = [
-  {
-    id: 'naukri-prompt',
-    title: 'AI Prompt Learning Journey',
-    issuer: 'Naukri Campus',
-    year: '2026',
-    date: '3 March 2026',
-    certificateId: '69a6c66ea79f2d6606a365ce',
-    certificateUrl: '/certificates/naukri-ai-prompt-learning-journey.pdf',
-    topics: ['Prompt Fundamentals', 'Structured Prompting', 'Advanced Techniques'],
-    description: 'Completed structured learning covering prompt fundamentals, structured prompt workflows, and advanced prompt engineering strategies.'
-  },
-  {
-    id: 'infosys-ai-primer',
-    title: 'Artificial Intelligence Primer',
-    issuer: 'Infosys Springboard',
-    year: '2026',
-    date: '8 April 2026',
-    certificateUrl: '/certificates/infosys-ai-primer-certification.pdf',
-    topics: ['Artificial Intelligence', 'Machine Learning', 'AI Foundations'],
-    description: 'Formal credential recognizing demonstrated foundational knowledge and problem-solving methodologies in Artificial Intelligence.'
-  },
-  {
-    id: 'linkedin-genai',
-    title: 'What Is Generative AI?',
-    issuer: 'LinkedIn Learning',
-    year: '2026',
-    date: '13 March 2026',
-    certificateId: '60dc427f8addc86f70094ca6758e9f74afee92a26c9e0b6ae720517aa589cbaa',
-    certificateUrl: '/certificates/linkedin-what-is-generative-ai.pdf',
-    topics: ['Generative AI Tools', 'Artificial Intelligence', 'LLM Concepts'],
-    description: 'Course credential covering generative AI architectures, prompt interfaces, and practical application workflows.'
-  },
-  {
-    id: 'simplilearn-generative-ai',
-    title: 'SkillQuest — Generative AI Literacy',
-    issuer: 'Simplilearn',
-    year: '2026',
-    date: '21 April 2026',
-    certificateId: '46904736',
-    certificateUrl: '/certificates/simplilearn-generative-ai-literacy.pdf',
-    topics: ['Generative AI', 'Prompt Workflows', 'AI Literacy'],
-    description: 'Formal credential recognizing demonstrated foundational knowledge in Generative AI tools and concepts.'
-  },
-  {
-    id: 'cisco-aicte-cybersecurity',
-    title: 'Virtual Internship in Cybersecurity',
-    issuer: 'Cisco Networking Academy · AICTE',
-    year: '2025',
-    date: 'June 2025 – August 2025',
-    certificateId: 'STU681afaf17b2831746598641',
-    certificateUrl: '/certificates/cisco-aicte-cybersecurity-internship.pdf',
-    topics: ['Cybersecurity', 'Threat Detection', 'Network Security', 'Skill India'],
-    description: 'Completed the Cisco AICTE Virtual Internship Program in Cybersecurity with hands-on labs and security tooling.'
-  },
-  {
-    id: 'edunet-emerging-tech-cert',
-    title: 'Emerging Technologies Internship (4-Week)',
-    issuer: 'Edunet Foundation · AICTE / IBM SkillsBuild',
-    year: '2026',
-    date: '15 May 2026 – 12 June 2026',
-    certificateId: 'INTERNSHIP_177549002069d3d3e4f3903',
-    certificateUrl: '/certificates/edunet-emerging-technologies-4-week.pdf',
-    topics: ['Agentic AI', 'Cyber Security', 'Quantum Computing', 'IBM Cloud'],
-    description: 'Program credential in Emerging Technologies covering Agentic AI, Cybersecurity, and Quantum Computing on IBM Cloud.'
   }
 ];
 
@@ -376,27 +221,6 @@ export const EDUCATION: EducationItem[] = [
     period: '2021',
     location: 'Bihar',
   }
-];
-
-export const RESUME_PITCH =
-  "Full Stack Developer building production-grade web applications and AI-powered platforms. I design type-safe architectures with React, Next.js, Node.js, PostgreSQL, and MongoDB — and ship authenticated LLM workflows on top of Groq and Gemini that solve real retention, learning, and commerce problems.";
-
-export const RESUME_STATS = {
-  projects: FEATURED_PROJECTS.length + ADDITIONAL_PROJECTS.length,
-  internships: EXPERIENCES.length,
-  certifications: CERTIFICATIONS.length,
-  cgpa: '8.4 / 10',
-} as const;
-
-export const TOP_SKILLS: TopSkill[] = [
-  { name: 'React', level: 'production', category: 'stack' },
-  { name: 'Next.js', level: 'production', category: 'stack' },
-  { name: 'TypeScript', level: 'production', category: 'stack' },
-  { name: 'Node.js', level: 'production', category: 'stack' },
-  { name: 'PostgreSQL', level: 'production', category: 'database' },
-  { name: 'MongoDB', level: 'production', category: 'database' },
-  { name: 'Groq AI', level: 'production', category: 'ai' },
-  { name: 'Gemini API', level: 'working', category: 'ai' },
 ];
 
 export const RESUME_LAST_UPDATED = 'August 2026';

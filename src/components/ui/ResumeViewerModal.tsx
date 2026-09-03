@@ -1,16 +1,19 @@
 import React, { useEffect, useRef } from 'react';
-import { X, Download, ExternalLink, Award, CheckCircle2 } from 'lucide-react';
-import type { CertificateModalData } from '../../types';
+import { X, Download, ExternalLink, FileText, CheckCircle2 } from 'lucide-react';
 import { useBodyScrollLock } from '../../hooks/useBodyScrollLock';
 
-interface CertificateViewerModalProps {
-  data: CertificateModalData | null;
+interface ResumeViewerModalProps {
+  isOpen: boolean;
   onClose: () => void;
+  resumeUrl: string;
+  lastUpdated?: string;
 }
 
-export const CertificateViewerModal: React.FC<CertificateViewerModalProps> = ({
-  data,
-  onClose
+export const ResumeViewerModal: React.FC<ResumeViewerModalProps> = ({
+  isOpen,
+  onClose,
+  resumeUrl,
+  lastUpdated
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -39,7 +42,7 @@ export const CertificateViewerModal: React.FC<CertificateViewerModalProps> = ({
       }
     };
 
-    if (data) {
+    if (isOpen) {
       window.addEventListener('keydown', handleKeyDown);
       setTimeout(() => closeButtonRef.current?.focus(), 50);
     }
@@ -47,49 +50,49 @@ export const CertificateViewerModal: React.FC<CertificateViewerModalProps> = ({
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [data, onClose]);
+  }, [isOpen, onClose]);
 
-  useBodyScrollLock(data !== null);
+  useBodyScrollLock(isOpen);
 
-  if (!data) return null;
+  if (!isOpen) return null;
 
-  const downloadFilename = data.file.split('/').pop() || 'certificate.pdf';
+  const downloadFilename = resumeUrl.split('/').pop() || 'resume.pdf';
 
   return (
     <div
       ref={modalRef}
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 bg-black/85 backdrop-blur-md overflow-y-auto animate-fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 bg-black/90 backdrop-blur-md overflow-y-auto animate-fade-in"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
-      aria-labelledby="cert-modal-title"
+      aria-labelledby="resume-modal-title"
     >
       <div
-        className="relative w-full max-w-4xl max-h-[92vh] bg-[#0A0A0D] border border-white/[0.12] rounded-3xl shadow-2xl flex flex-col overflow-hidden text-left"
+        className="relative w-full max-w-5xl max-h-[94vh] bg-[#0A0A0D] border border-white/[0.12] rounded-3xl shadow-2xl flex flex-col overflow-hidden text-left"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Header */}
         <div className="px-6 py-4 border-b border-white/[0.08] flex items-center justify-between gap-4 bg-[#0E0E12]">
-          <div className="space-y-0.5">
-            <div className="flex items-center gap-2">
+          <div className="space-y-0.5 min-w-0">
+            <div className="flex items-center gap-2 flex-wrap">
               <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-400 font-semibold flex items-center gap-1.5">
-                <Award className="w-3.5 h-3.5 text-amber-400" />
-                <span>Verified Credential</span>
+                <FileText className="w-3.5 h-3.5 text-violet-400" />
+                <span>Curriculum Vitae</span>
               </span>
-              <span className="w-1 h-1 rounded-full bg-zinc-600"></span>
-              <span className="text-[11px] font-mono text-zinc-400">{data.issuer}</span>
-            </div>
-            <h3 id="cert-modal-title" className="font-display text-lg sm:text-xl font-bold text-white leading-snug">
-              {data.title}
-            </h3>
-            <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-zinc-400 pt-0.5">
-              <span>Issued: {data.date}</span>
-              {data.certificateId && (
+              {lastUpdated && (
                 <>
-                  <span>•</span>
-                  <span>ID: <code className="text-zinc-300">{data.certificateId}</code></span>
+                  <span className="w-1 h-1 rounded-full bg-zinc-600"></span>
+                  <span className="text-[11px] font-mono text-zinc-400">Updated {lastUpdated}</span>
                 </>
               )}
+            </div>
+            <h3 id="resume-modal-title" className="font-display text-lg sm:text-xl font-bold text-white leading-snug">
+              Suraj Bhan Pratap Singh — Resume
+            </h3>
+            <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-zinc-400 pt-0.5">
+              <span>Full Stack Developer + AI</span>
+              <span>•</span>
+              <span>Jaipur, Rajasthan</span>
             </div>
           </div>
 
@@ -98,7 +101,7 @@ export const CertificateViewerModal: React.FC<CertificateViewerModalProps> = ({
             type="button"
             onClick={onClose}
             className="p-2 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] text-zinc-400 hover:text-white border border-white/[0.08] transition-colors focus:outline-none focus:ring-2 focus:ring-white shrink-0"
-            aria-label="Close certificate viewer"
+            aria-label="Close resume viewer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -106,11 +109,13 @@ export const CertificateViewerModal: React.FC<CertificateViewerModalProps> = ({
 
         {/* PDF Viewer Body */}
         <div className="p-3 sm:p-4 bg-[#050508] flex-1 overflow-hidden flex flex-col">
-          <div className="relative w-full h-[62vh] sm:h-[68vh] rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0E]">
+          <div className="relative w-full h-[70vh] sm:h-[76vh] rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0E]">
             <iframe
-              src={`${data.file}#toolbar=0&navpanes=0`}
+              key={resumeUrl}
+              src={`${resumeUrl}#toolbar=0&navpanes=0`}
               className="w-full h-full border-0"
-              title={`${data.title} - Official Certificate`}
+              title="Suraj Bhan Pratap Singh - Resume"
+              loading="eager"
             />
           </div>
         </div>
@@ -119,12 +124,12 @@ export const CertificateViewerModal: React.FC<CertificateViewerModalProps> = ({
         <div className="px-6 py-3.5 border-t border-white/[0.08] bg-[#0E0E12] flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-xs font-mono text-emerald-400">
             <CheckCircle2 className="w-4 h-4" />
-            <span>Official Verified PDF Document</span>
+            <span>Official Verified Document</span>
           </div>
 
           <div className="flex items-center gap-3">
             <a
-              href={data.file}
+              href={resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#181820] hover:bg-[#22222C] text-white text-xs font-medium border border-white/[0.1] transition-all"
@@ -134,7 +139,7 @@ export const CertificateViewerModal: React.FC<CertificateViewerModalProps> = ({
             </a>
 
             <a
-              href={data.file}
+              href={resumeUrl}
               download={downloadFilename}
               className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-white text-black text-xs font-semibold hover:bg-zinc-200 transition-all shadow-md active:scale-95"
             >
