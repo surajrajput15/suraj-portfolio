@@ -1,6 +1,7 @@
 import React from 'react';
 import { ExternalLink, BookOpen, CheckCircle2 } from 'lucide-react';
 import { GitHubIcon } from '../ui/Icons';
+import { ResponsiveImage } from '../ui/ResponsiveImage';
 import { FEATURED_PROJECTS } from '../../data/portfolioData';
 
 interface FeaturedProjectsSectionProps {
@@ -38,7 +39,7 @@ export const FeaturedProjectsSection: React.FC<FeaturedProjectsSectionProps> = (
                 key={project.id}
                 className="group relative rounded-3xl bg-[#09090C] border border-white/[0.08] hover:border-white/[0.2] transition-all p-6 sm:p-10"
               >
-                <div className={`grid grid-cols-1 lg:grid-cols-12 gap-10 items-center ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                   {/* Visual Showcase (60% screen weight) */}
                   <div className={`lg:col-span-7 ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
                     <div className="relative rounded-2xl overflow-hidden border border-white/[0.1] bg-[#050507] shadow-2xl group/img">
@@ -57,12 +58,12 @@ export const FeaturedProjectsSection: React.FC<FeaturedProjectsSectionProps> = (
 
                       {/* Main Screenshot with Subtle Zoom Hover */}
                       <div className="relative aspect-[16/10] overflow-hidden bg-[#0A0A0E]">
-                        <img
+                        <ResponsiveImage
                           src={project.image}
                           alt={`${project.title} Preview`}
-                          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/img:scale-[1.03]"
-                          loading="lazy"
-                          decoding="async"
+                          className="w-full h-full transition-transform duration-500 group-hover/img:scale-[1.03]"
+                          layout="project-hero"
+                          objectPosition="top"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity flex items-end p-6">
                           <button

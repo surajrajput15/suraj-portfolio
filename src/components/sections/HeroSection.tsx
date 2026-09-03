@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowDown, ArrowUpRight, FileText, Terminal } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
+import { ResponsiveImage } from '../ui/ResponsiveImage';
 
 interface HeroSectionProps {
   onExploreWork: () => void;
@@ -112,14 +113,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreWork }) => {
                 <div className="w-full h-full rounded-full bg-[#0A0A0C]" />
               </div>
               {/* Photo */}
-              <img
+              <ResponsiveImage
                 src="/profile.jpg"
                 alt={`${PERSONAL_INFO.name} — ${PERSONAL_INFO.positioning}`}
-                className="absolute inset-[6px] w-[calc(100%-12px)] h-[calc(100%-12px)] rounded-full object-cover"
+                className="absolute inset-[6px] w-[calc(100%-12px)] h-[calc(100%-12px)] rounded-full"
+                layout="hero-profile"
                 loading="eager"
-                decoding="async"
-                width="256"
-                height="256"
+                fetchPriority="high"
+                width={256}
+                height={256}
+                objectFit="cover"
+                objectPosition="center"
               />
             </div>
           </div>

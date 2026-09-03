@@ -1,6 +1,7 @@
 import React from 'react';
 import { ExternalLink, CheckCircle2 } from 'lucide-react';
 import { GitHubIcon } from '../ui/Icons';
+import { ResponsiveImage } from '../ui/ResponsiveImage';
 import { ADDITIONAL_PROJECTS } from '../../data/portfolioData';
 
 export const AdditionalProjectsSection: React.FC = () => {
@@ -34,12 +35,12 @@ export const AdditionalProjectsSection: React.FC = () => {
               <div className="space-y-6">
                 {/* Visual Thumbnail */}
                 <div className="aspect-[16/9] rounded-2xl overflow-hidden bg-[#111115] border border-white/[0.08] relative">
-                  <img
+                  <ResponsiveImage
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                    decoding="async"
+                    className="w-full h-full group-hover:scale-105 transition-transform duration-300"
+                    layout="project-card"
+                    objectPosition="top"
                   />
                   <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-violet-950/70 backdrop-blur-md border border-violet-500/25 text-[11px] font-mono text-violet-200">
                     {project.category}

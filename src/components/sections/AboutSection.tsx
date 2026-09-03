@@ -1,6 +1,7 @@
 import React from 'react';
 import { Terminal, Zap } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
+import { ResponsiveImage } from '../ui/ResponsiveImage';
 
 export const AboutSection: React.FC = () => {
   return (
@@ -12,15 +13,17 @@ export const AboutSection: React.FC = () => {
             <div className="p-6 rounded-3xl bg-[#09090C] border border-white/[0.1] space-y-6">
               <div className="flex items-center gap-4">
                 <div className="relative w-14 h-14 rounded-full p-[2px] bg-gradient-to-tr from-violet-400 via-fuchsia-400 to-violet-600 shrink-0">
-                  <img
-                    src="/profile.jpg"
-                    alt={PERSONAL_INFO.name}
-                    className="w-full h-full rounded-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                    width="56"
-                    height="56"
-                  />
+                  <div className="w-full h-full rounded-full overflow-hidden">
+                    <ResponsiveImage
+                      src="/profile.jpg"
+                      alt={PERSONAL_INFO.name}
+                      className="w-full h-full"
+                      layout="about-card"
+                      width={56}
+                      height={56}
+                      objectPosition="center"
+                    />
+                  </div>
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-lg text-white">

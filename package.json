@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "images:optimize": "node scripts/optimize-images.mjs",
+    "check:images": "node scripts/check-image-sizes.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
@@ -22,6 +24,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.4",
     "oxlint": "^1.75.0",
+    "sharp": "^0.35.4",
     "typescript": "~6.0.2",
     "vite": "^8.2.0"
   }

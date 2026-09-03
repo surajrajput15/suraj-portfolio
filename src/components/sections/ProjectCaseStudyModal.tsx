@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { X, ExternalLink, Layers, ShieldCheck, CheckCircle2, Sparkles, Image as ImageIcon } from 'lucide-react';
 import { GitHubIcon } from '../ui/Icons';
+import { ResponsiveImage } from '../ui/ResponsiveImage';
+import { useBodyScrollLock } from '../../hooks/useBodyScrollLock';
 import { CASE_STUDIES } from '../../data/caseStudies';
 
 interface ProjectCaseStudyModalProps {
@@ -54,14 +56,14 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
     };
     if (caseStudyId) {
       window.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
       setTimeout(() => closeButtonRef.current?.focus(), 50);
     }
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
     };
   }, [caseStudyId, onClose]);
+
+  useBodyScrollLock(caseStudyId !== null);
 
   if (!caseStudy) return null;
 
@@ -293,12 +295,12 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
                     className="group rounded-2xl bg-[#111115] border border-white/[0.08] overflow-hidden flex flex-col"
                   >
                     <div className="aspect-[16/10] overflow-hidden bg-black/40">
-                      <img
+                      <ResponsiveImage
                         src={shot.url}
                         alt={shot.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        loading="lazy"
-                        decoding="async"
+                        className="w-full h-full group-hover:scale-105 transition-transform duration-300"
+                        layout="case-study-screenshot"
+                        objectPosition="top"
                       />
                     </div>
                     <div className="p-3.5 space-y-1">

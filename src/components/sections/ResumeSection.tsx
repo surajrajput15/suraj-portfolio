@@ -13,6 +13,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { GitHubIcon, LinkedInIcon } from '../ui/Icons';
+import { ResponsiveImage } from '../ui/ResponsiveImage';
 import {
   PERSONAL_INFO,
   EXPERIENCES,
@@ -123,15 +124,17 @@ export const ResumeSection: React.FC = () => {
             {/* Header Card: Photo + Name + Contact */}
             <div className="p-6 sm:p-8 rounded-3xl bg-[#09090C] border border-white/[0.1] shadow-2xl flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full p-[2px] bg-gradient-to-tr from-violet-400 via-fuchsia-400 to-violet-600 shrink-0">
-                <img
-                  src="/profile.jpg"
-                  alt={PERSONAL_INFO.name}
-                  className="w-full h-full rounded-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                  width="96"
-                  height="96"
-                />
+                <div className="w-full h-full rounded-full overflow-hidden">
+                  <ResponsiveImage
+                    src="/profile.jpg"
+                    alt={PERSONAL_INFO.name}
+                    className="w-full h-full"
+                    layout="resume-header"
+                    width={96}
+                    height={96}
+                    objectPosition="center"
+                  />
+                </div>
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
@@ -385,9 +388,9 @@ export const ResumeSection: React.FC = () => {
             {/* Resume Header */}
             <div className="border-b border-white/[0.08] pb-8 space-y-3">
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-                <h3 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
                   {PERSONAL_INFO.name}
-                </h3>
+                </h2>
                 <span className="font-mono text-sm text-violet-400 font-semibold">
                   {PERSONAL_INFO.positioning}
                 </span>
