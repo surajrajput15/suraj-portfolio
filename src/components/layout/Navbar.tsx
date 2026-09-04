@@ -69,7 +69,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   const navLinks = [
     { label: 'Work', href: '#work' },
     { label: 'Experience', href: '#experience' },
-    { label: 'Resume', href: '#resume' },
+    { label: 'Skills', href: '#skills' },
+    { label: 'Education', href: '#education' },
+    { label: 'About', href: '#about' },
+    { label: 'FAQ', href: '#faq' },
     { label: 'Contact', href: '#contact' },
   ];
 
@@ -78,9 +81,9 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   return (
     <header
       ref={headerRef}
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 animate-navbar-mount ${
         isScrolled
-          ? 'bg-[#050505]/85 backdrop-blur-md border-b border-white/[0.08] py-3.5 shadow-2xl'
+          ? 'bg-[#050505]/70 backdrop-blur-xl border-b border-white/[0.08] py-3.5 shadow-2xl'
           : 'bg-transparent py-5'
       }`}
     >
@@ -126,12 +129,13 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             })}
           </nav>
 
-          {/* Right Action / Resume Gradient Pill — opens in new tab */}
+          {/* Right Action / Resume Gradient Pill — direct PDF open + download (no in-app loading) */}
           <div className="hidden md:flex items-center gap-3">
             <a
               href={PERSONAL_INFO.resumePdfUrl}
               target="_blank"
               rel="noopener noreferrer"
+              download="Suraj_Bhan_Pratap_Singh_Resume.pdf"
               className="inline-flex items-center justify-center whitespace-nowrap transition-all disabled:pointer-events-none disabled:opacity-50 outline-none focus-visible:ring-2 focus-visible:ring-white h-8 gap-1.5 px-3 rounded-full text-sm font-semibold text-white shadow-lg shadow-primary/20 hover:brightness-110 bg-gradient-to-r from-violet-500 to-fuchsia-500"
             >
               <FileText className="w-3.5 h-3.5" />
@@ -165,7 +169,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
       {mobileMenuOpen && (
         <div
           ref={drawerRef}
-          className="md:hidden fixed inset-x-0 bg-[#08080A]/95 backdrop-blur-xl border-b border-white/[0.1] px-6 py-6 transition-all animate-fade-in shadow-2xl"
+          className="md:hidden fixed inset-x-0 glass border-b border-white/[0.1] px-6 py-6 transition-all animate-fade-in shadow-2xl"
           style={{ top: headerHeight }}
           role="dialog"
           aria-modal="true"

@@ -5,7 +5,10 @@ import { HeroSection } from './components/sections/HeroSection';
 import { FeaturedProjectsSection } from './components/sections/FeaturedProjectsSection';
 import { AdditionalProjectsSection } from './components/sections/AdditionalProjectsSection';
 import { ExperienceSection } from './components/sections/ExperienceSection';
-import { ResumeSection } from './components/sections/ResumeSection';
+import { SkillsSection } from './components/sections/SkillsSection';
+import { EducationSection } from './components/sections/EducationSection';
+import { AboutSection } from './components/sections/AboutSection';
+import { FAQSection } from './components/sections/FAQSection';
 import { ContactSection } from './components/sections/ContactSection';
 import { ProjectCaseStudyModal } from './components/sections/ProjectCaseStudyModal';
 import { useActiveSection } from './hooks/useActiveSection';
@@ -14,7 +17,10 @@ const SECTION_IDS = [
   'hero',
   'work',
   'experience',
-  'resume',
+  'skills',
+  'education',
+  'about',
+  'faq',
   'contact'
 ] as const;
 
@@ -57,10 +63,19 @@ export function App() {
         {/* 4. Work Experience Timeline (with inline certs) */}
         <ExperienceSection />
 
-        {/* 5. Resume Section */}
-        <ResumeSection />
+        {/* 5. Skills & Technologies */}
+        <SkillsSection />
 
-        {/* 6. Contact Section */}
+        {/* 6. Education */}
+        <EducationSection />
+
+        {/* 7. About */}
+        <AboutSection />
+
+        {/* 8. FAQ */}
+        <FAQSection />
+
+        {/* 9. Contact Section (with embedded Resume block) */}
         <ContactSection />
       </main>
 
