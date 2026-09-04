@@ -1,7 +1,7 @@
 import React from 'react';
-import { Copy, Check, ArrowUpRight, FileText, Send, MapPin, Mail, Download, ExternalLink, Sparkles } from 'lucide-react';
+import { Copy, Check, ArrowUpRight, Send, MapPin, Mail } from 'lucide-react';
 import { GitHubIcon, LinkedInIcon } from '../ui/Icons';
-import { PERSONAL_INFO, RESUME_LAST_UPDATED } from '../../data/portfolioData';
+import { PERSONAL_INFO } from '../../data/portfolioData';
 import { useClipboard } from '../../hooks/useClipboard';
 import { Reveal } from '../ui/Reveal';
 import { SectionHeader } from '../ui/SectionHeader';
@@ -38,7 +38,7 @@ export const ContactSection: React.FC = () => {
                   <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-xs font-medium text-muted-foreground text-zinc-500">Email</p>
+                  <p className="text-xs font-medium text-zinc-500">Email</p>
                   <p className="truncate text-xs sm:text-sm font-semibold text-white">
                     {PERSONAL_INFO.email}
                   </p>
@@ -73,53 +73,8 @@ export const ContactSection: React.FC = () => {
               <span>Based in {PERSONAL_INFO.location}</span>
             </div>
 
-            {/* Resume pill block */}
-            <div className="mb-6 mx-auto max-w-md p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-violet-500/[0.08] via-fuchsia-500/[0.04] to-transparent border border-violet-400/20">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div className="text-left space-y-1">
-                  <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-violet-500/10 border border-violet-400/30 text-[10px] font-mono uppercase tracking-widest text-violet-300 font-bold">
-                    <Sparkles className="w-3 h-3" />
-                    <span>Curriculum Vitae</span>
-                  </div>
-                  <div className="text-sm font-semibold text-white">View my resume</div>
-                  <div className="text-[10px] font-mono text-zinc-500">
-                    Last updated: {RESUME_LAST_UPDATED}
-                  </div>
-                </div>
-                <div className="flex flex-wrap items-center gap-2">
-                  <a
-                    href={PERSONAL_INFO.resumePdfUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    download="Suraj_Bhan_Pratap_Singh_Resume.pdf"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white text-black text-[11px] font-semibold hover:bg-zinc-200 transition-all shadow-md active:scale-95"
-                  >
-                    <FileText className="w-3.5 h-3.5" />
-                    <span>View</span>
-                  </a>
-                  <a
-                    href={PERSONAL_INFO.resumePdfUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#111115] hover:bg-[#18181F] text-white text-[11px] font-medium border border-white/[0.12] transition-all"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5 text-zinc-400" />
-                    <span>New Tab</span>
-                  </a>
-                  <a
-                    href={PERSONAL_INFO.resumePdfUrl}
-                    download="Suraj_Bhan_Pratap_Singh_Resume.pdf"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#111115] hover:bg-[#18181F] text-white text-[11px] font-medium border border-white/[0.12] transition-all"
-                  >
-                    <Download className="w-3.5 h-3.5 text-zinc-400" />
-                    <span>Download</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
             {/* Social / Professional Tiles */}
-            <div className="mb-6 grid gap-3 grid-cols-1 sm:grid-cols-3">
+            <div className="mb-6 grid gap-3 grid-cols-1 sm:grid-cols-2 max-w-md mx-auto">
               <a
                 href={PERSONAL_INFO.githubUrl}
                 target="_blank"
@@ -145,39 +100,16 @@ export const ContactSection: React.FC = () => {
                   <p className="text-xs text-zinc-400 truncate">Suraj Bhan Pratap</p>
                 </div>
               </a>
-
-              <a
-                href={PERSONAL_INFO.resumePdfUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                download="Suraj_Bhan_Pratap_Singh_Resume.pdf"
-                className="group flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all hover:bg-white/[0.05] hover:border-primary/30"
-              >
-                <FileText className="h-5 w-5 text-zinc-400 transition-colors group-hover:text-white" />
-                <div className="min-w-0">
-                  <p className="text-sm font-semibold text-white">Resume</p>
-                  <p className="text-xs text-zinc-400 truncate">PDF · Direct Open</p>
-                </div>
-              </a>
             </div>
 
-            {/* Bottom action row */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            {/* Bottom Say Hello CTA */}
+            <div className="flex items-center justify-center">
               <a
                 href={`mailto:${PERSONAL_INFO.email}?subject=Full%20Stack%20%2F%20AI%20Engineering%20Opportunity`}
-                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto h-12 px-7 rounded-xl bg-gradient-to-r from-primary to-accent text-sm font-semibold text-white shadow-lg shadow-primary/25 hover:brightness-110 transition-all hover:shadow-xl hover:shadow-primary/30"
+                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto h-12 px-8 rounded-xl bg-gradient-to-r from-primary to-accent text-sm font-semibold text-white shadow-lg shadow-primary/25 hover:brightness-110 transition-all hover:shadow-xl hover:shadow-primary/30"
               >
                 <span>Say Hello</span>
                 <ArrowUpRight className="w-4 h-4" />
-              </a>
-              <a
-                href={PERSONAL_INFO.resumePdfUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto h-12 px-7 rounded-xl border border-primary/30 bg-transparent text-sm font-semibold text-white hover:bg-primary/10 transition-all"
-              >
-                <FileText className="w-4 h-4" />
-                <span>View Resume</span>
               </a>
             </div>
           </div>

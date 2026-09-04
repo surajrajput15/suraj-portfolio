@@ -25,14 +25,14 @@ export const ExperienceSection: React.FC = () => {
         />
 
         {/* Timeline */}
-        <div className="space-y-10 relative before:absolute before:inset-0 before:left-3.5 sm:before:left-4 before:w-[1px] before:bg-gradient-to-b before:from-violet-500/40 before:via-fuchsia-500/30 before:to-transparent">
+        <div className="space-y-6 relative before:absolute before:inset-0 before:left-3.5 sm:before:left-4 before:w-[1px] before:bg-gradient-to-b before:from-violet-500/40 before:via-fuchsia-500/30 before:to-transparent">
           {EXPERIENCES.map((exp, idx) => (
             <Reveal key={exp.id} delay={idx * 100}>
               <div className="relative pl-10 sm:pl-12 group">
                 {/* Timeline Bullet Node */}
                 <div className="absolute left-1.5 sm:left-2 top-1.5 w-4 h-4 rounded-full bg-[#0A0A0E] border-2 border-white/40 group-hover:border-white transition-colors" />
 
-                <div className="p-6 sm:p-8 rounded-2xl bg-[#09090C] border border-white/[0.08] hover:border-white/[0.18] transition-all space-y-5 hover:shadow-[0_0_50px_hsl(262_83%_58%_/0.08)]">
+                <div className="p-5 sm:p-6 rounded-2xl bg-[#09090C] border border-white/[0.08] hover:border-white/[0.18] transition-all space-y-4 hover:shadow-[0_0_50px_hsl(262_83%_58%_/0.08)]">
                   {/* Role and Company Header */}
                   <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                     <div>

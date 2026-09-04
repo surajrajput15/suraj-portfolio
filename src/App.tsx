@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { HeroSection } from './components/sections/HeroSection';
@@ -10,10 +12,12 @@ import { EducationSection } from './components/sections/EducationSection';
 import { AboutSection } from './components/sections/AboutSection';
 import { FAQSection } from './components/sections/FAQSection';
 import { ContactSection } from './components/sections/ContactSection';
-import { ProjectCaseStudyModal } from './components/sections/ProjectCaseStudyModal';
+import { ProjectCaseStudyPage } from './pages/ProjectCaseStudyPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 import { useActiveSection } from './hooks/useActiveSection';
+import { useScrollToHash } from './hooks/useScrollToHash';
 
-const SECTION_IDS = [
+const HOME_SECTION_IDS = [
   'hero',
   'work',
   'experience',
@@ -24,18 +28,41 @@ const SECTION_IDS = [
   'contact'
 ] as const;
 
+function HomePage() {
+  useScrollToHash();
+  return (
+    <main id="main-content" tabIndex={-1}>
+      <HeroSection />
+      <FeaturedProjectsSection />
+      <AdditionalProjectsSection />
+      <ExperienceSection />
+      <SkillsSection />
+      <EducationSection />
+      <AboutSection />
+      <FAQSection />
+      <ContactSection />
+    </main>
+  );
+}
+
 export function App() {
-  const [selectedCaseStudyId, setSelectedCaseStudyId] = useState<string | null>(null);
+  return (
+    <BrowserRouter>
+      <AppShell />
+    </BrowserRouter>
+  );
+}
 
-  const activeSection = useActiveSection(SECTION_IDS);
+function AppShell() {
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+  const activeSection = useActiveSection(HOME_SECTION_IDS, isHome);
 
-  const handleOpenCaseStudy = (caseStudyId: string) => {
-    setSelectedCaseStudyId(caseStudyId);
-  };
-
-  const handleCloseCaseStudy = () => {
-    setSelectedCaseStudyId(null);
-  };
+  useEffect(() => {
+    if (location.pathname !== '/') {
+      window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+    }
+  }, [location.pathname]);
 
   return (
     <div className="min-h-screen bg-[#050505] text-[#F4F4F5] font-sans selection:bg-white selection:text-black">
@@ -46,47 +73,15 @@ export function App() {
         Skip to main content
       </a>
 
-      {/* Sticky Top Navigation */}
-      <Navbar activeSection={activeSection} />
+      <Navbar activeSection={isHome ? activeSection : ''} />
 
-      {/* Main Content Sections */}
-      <main id="main-content" tabIndex={-1}>
-        {/* 1. Hero */}
-        <HeroSection />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/projects/:id" element={<ProjectCaseStudyPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
 
-        {/* 2. Featured Tier A Projects */}
-        <FeaturedProjectsSection onOpenCaseStudy={handleOpenCaseStudy} />
-
-        {/* 3. Additional Curated Projects (Tier B) */}
-        <AdditionalProjectsSection />
-
-        {/* 4. Work Experience Timeline (with inline certs) */}
-        <ExperienceSection />
-
-        {/* 5. Skills & Technologies */}
-        <SkillsSection />
-
-        {/* 6. Education */}
-        <EducationSection />
-
-        {/* 7. About */}
-        <AboutSection />
-
-        {/* 8. FAQ */}
-        <FAQSection />
-
-        {/* 9. Contact Section (with embedded Resume block) */}
-        <ContactSection />
-      </main>
-
-      {/* Footer */}
-      <Footer />
-
-      {/* Deep Case Study Modal */}
-      <ProjectCaseStudyModal
-        caseStudyId={selectedCaseStudyId}
-        onClose={handleCloseCaseStudy}
-      />
+      {isHome && <Footer />}
     </div>
   );
 }

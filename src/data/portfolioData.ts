@@ -6,7 +6,7 @@ import type {
 
 export const PERSONAL_INFO = {
   name: 'Suraj Bhan Pratap Singh',
-  positioning: 'Full Stack Developer + AI',
+  positioning: 'Full-Stack Developer',
   email: 'surajdona2005@gmail.com',
   phone: '+917209690361',
   location: 'Jaipur, Rajasthan',
@@ -212,18 +212,6 @@ export const EDUCATION: EducationItem[] = [
       'Undergraduate coursework in Data Structures & Algorithms, Database Management Systems, Operating Systems, Web Technologies, and Software Engineering.',
       'Building production-oriented full-stack web applications and AI-driven platforms.'
     ]
-  },
-  {
-    degree: 'Class 12th (BSEB) — 77.6%',
-    institution: 'T.S. College Hisua',
-    period: '2023',
-    location: 'Bihar',
-  },
-  {
-    degree: 'Class 10th (BSEB) — 87.6%',
-    institution: 'Inter School Hisua',
-    period: '2021',
-    location: 'Bihar',
   }
 ];
 

@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 
-export function useActiveSection(sectionIds: readonly string[]) {
+export function useActiveSection(sectionIds: readonly string[], enabled = true) {
   const [activeSection, setActiveSection] = useState<string>(sectionIds[0] ?? 'hero');
   const offsetsRef = useRef<Map<string, number>>(new Map());
 
   useEffect(() => {
+    if (!enabled) return;
+
     const cacheOffsets = () => {
       const map = new Map<string, number>();
       for (const id of sectionIds) {
@@ -51,7 +53,7 @@ export function useActiveSection(sectionIds: readonly string[]) {
       window.removeEventListener('resize', onResize);
       if (frame !== 0) window.cancelAnimationFrame(frame);
     };
-  }, [sectionIds]);
+  }, [sectionIds, enabled]);
 
   return activeSection;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
-import { ExternalLink, CheckCircle2, Layers } from 'lucide-react';
-import { GitHubIcon } from '../ui/Icons';
+import { Link } from 'react-router-dom';
+import { ArrowUpRight, Layers } from 'lucide-react';
 import { ResponsiveImage } from '../ui/ResponsiveImage';
 import { ADDITIONAL_PROJECTS } from '../../data/portfolioData';
 import { Reveal } from '../ui/Reveal';
@@ -25,18 +25,23 @@ export const AdditionalProjectsSection: React.FC = () => {
           eyebrowIcon={<Layers className="h-3.5 w-3.5" />}
           title="Additional Engineering"
           accent="Work"
-          subtitle="Secondary tools, ML prototypes, and agentic AI experiments spanning serverless AI integration, machine learning, and research automation."
+          subtitle="Secondary tools, ML prototypes, and agentic AI experiments. Tap any card for the project page."
           align="left"
         />
 
-        {/* Curated Grid / Focus Card */}
-        <div className={`grid gap-8 ${ADDITIONAL_PROJECTS.length === 1 ? 'max-w-3xl mx-auto' : 'grid-cols-1 lg:grid-cols-2'}`}>
-          {ADDITIONAL_PROJECTS.map((project, idx) => (
-            <Reveal key={project.id} delay={idx * 80}>
-              <div className="group rounded-3xl bg-[#09090C] border border-white/[0.08] hover:border-white/[0.2] transition-all p-6 sm:p-8 flex flex-col justify-between h-full hover:shadow-[0_0_60px_hsl(262_83%_58%_/0.08)]">
-                <div className="space-y-6">
-                  {/* Visual Thumbnail */}
-                  <div className="aspect-[16/9] rounded-2xl overflow-hidden bg-[#111115] border border-white/[0.08] relative">
+        {/* Minimal grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {ADDITIONAL_PROJECTS.map((project, idx) => {
+            const hasCaseStudy = project.caseStudyId || true; // Always link to /projects/:id
+            const href = `/projects/${project.id}`;
+            return (
+              <Reveal key={project.id} delay={idx * 60}>
+                <Link
+                  to={href}
+                  className="group block h-full rounded-2xl bg-[#09090C] border border-white/[0.08] hover:border-white/[0.24] transition-all overflow-hidden hover:shadow-[0_0_50px_hsl(262_83%_58%_/0.1)] hover:-translate-y-0.5"
+                >
+                  {/* Thumbnail */}
+                  <div className="aspect-[16/9] overflow-hidden bg-[#111115] border-b border-white/[0.06] relative">
                     <ResponsiveImage
                       src={project.image}
                       alt={project.title}
@@ -44,70 +49,46 @@ export const AdditionalProjectsSection: React.FC = () => {
                       layout="project-card"
                       objectPosition="top"
                     />
-                    <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-violet-950/70 backdrop-blur-md border border-violet-500/25 text-[11px] font-mono text-violet-200">
+                    <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-violet-950/70 backdrop-blur-md border border-violet-500/25 text-[10px] font-mono text-violet-200">
                       {project.category}
                     </div>
                   </div>
 
-                  {/* Content */}
-                  <div className="space-y-2">
-                    <h3 className="font-display text-xl sm:text-2xl font-bold text-white group-hover:text-zinc-200 transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm font-medium text-zinc-300">
-                      {project.tagline}
-                    </p>
-                    <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
-                      {project.description}
-                    </p>
-                  </div>
+                  {/* Card body */}
+                  <div className="p-5 space-y-3 flex flex-col">
+                    <div>
+                      <h3 className="font-display text-base sm:text-lg font-bold text-white group-hover:text-zinc-200 transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-xs text-zinc-400 mt-1 leading-relaxed line-clamp-2">
+                        {project.tagline}
+                      </p>
+                    </div>
 
-                  {/* Highlights */}
-                  <ul className="space-y-1.5 pt-2">
-                    {project.highlights.map((h, i) => (
-                      <li key={i} className="flex items-start gap-2 text-xs text-zinc-300 font-normal">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-zinc-400 shrink-0 mt-0.5" />
-                        <span>{h}</span>
-                      </li>
-                    ))}
-                  </ul>
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.technologies.slice(0, 3).map((t) => (
+                        <span key={t} className="tech-pill text-[10px]">
+                          {t}
+                        </span>
+                      ))}
+                      {project.technologies.length > 3 && (
+                        <span className="tech-pill text-[10px]">
+                          +{project.technologies.length - 3}
+                        </span>
+                      )}
+                    </div>
 
-                  {/* Tech badges */}
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {project.technologies.map((t) => (
-                      <span key={t} className="tech-pill text-[11px]">
-                        {t}
+                    <div className="pt-2 mt-auto flex items-center justify-between border-t border-white/[0.06]">
+                      <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-400 group-hover:text-primary transition-colors">
+                        {hasCaseStudy ? 'View Project' : 'View Details'}
                       </span>
-                    ))}
+                      <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                    </div>
                   </div>
-                </div>
-
-                {/* Action links */}
-                <div className="pt-6 mt-6 border-t border-white/[0.08] flex items-center gap-3">
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white text-black text-xs font-semibold hover:bg-zinc-200 transition-all"
-                    >
-                      <ExternalLink className="w-3.5 h-3.5" />
-                      <span>Live Demo</span>
-                    </a>
-                  )}
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#121217] hover:bg-[#1A1A22] text-white text-xs font-medium border border-white/[0.1] transition-all"
-                  >
-                    <GitHubIcon className="w-3.5 h-3.5 text-zinc-400" />
-                    <span>GitHub Repository</span>
-                  </a>
-                </div>
-              </div>
-            </Reveal>
-          ))}
+                </Link>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
