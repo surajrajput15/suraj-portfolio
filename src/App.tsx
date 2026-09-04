@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
@@ -15,7 +15,10 @@ import { ContactSection } from './components/sections/ContactSection';
 import { ProjectCaseStudyPage } from './pages/ProjectCaseStudyPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { useActiveSection } from './hooks/useActiveSection';
-import { useScrollToHash } from './hooks/useScrollToHash';
+import {
+  useScrollToSegment,
+  ALLOWED_SECTIONS,
+} from './hooks/useScrollToSegment';
 
 const HOME_SECTION_IDS = [
   'hero',
@@ -25,11 +28,10 @@ const HOME_SECTION_IDS = [
   'education',
   'about',
   'faq',
-  'contact'
+  'contact',
 ] as const;
 
 function HomePage() {
-  useScrollToHash();
   return (
     <main id="main-content" tabIndex={-1}>
       <HeroSection />
@@ -45,6 +47,15 @@ function HomePage() {
   );
 }
 
+function SectionRoute() {
+  const { section } = useParams<{ section: string }>();
+  useScrollToSegment();
+  if (!section || !ALLOWED_SECTIONS.has(section)) {
+    return <NotFoundPage />;
+  }
+  return <HomePage />;
+}
+
 export function App() {
   return (
     <BrowserRouter>
@@ -55,14 +66,16 @@ export function App() {
 
 function AppShell() {
   const location = useLocation();
-  const isHome = location.pathname === '/';
+  const firstSegment = location.pathname.replace(/^\//, '').split('/')[0] ?? '';
+  const isHome =
+    location.pathname === '/' || ALLOWED_SECTIONS.has(firstSegment);
   const activeSection = useActiveSection(HOME_SECTION_IDS, isHome);
 
   useEffect(() => {
-    if (location.pathname !== '/') {
+    if (!isHome) {
       window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
     }
-  }, [location.pathname]);
+  }, [location.pathname, isHome]);
 
   return (
     <div className="min-h-screen bg-[#050505] text-[#F4F4F5] font-sans selection:bg-white selection:text-black">
@@ -78,6 +91,7 @@ function AppShell() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/projects/:id" element={<ProjectCaseStudyPage />} />
+        <Route path="/:section" element={<SectionRoute />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
 

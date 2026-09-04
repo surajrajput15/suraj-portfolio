@@ -10,7 +10,7 @@ export const PERSONAL_INFO = {
   email: 'surajdona2005@gmail.com',
   phone: '+917209690361',
   location: 'Jaipur, Rajasthan',
-  status: 'Open to Full Stack & AI Engineering Opportunities',
+  status: 'Open to Full Stack Opportunities',
   githubUrl: 'https://github.com/surajrajput15',
   linkedinUrl: 'https://www.linkedin.com/in/suraj-bhan-pratap-singh-891727293',
   resumePdfUrl: '/Suraj_Bhan_Pratap_Singh_Resume.pdf',

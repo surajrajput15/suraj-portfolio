@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, FileText } from 'lucide-react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 import { useBodyScrollLock } from '../../hooks/useBodyScrollLock';
 
@@ -9,14 +9,28 @@ interface NavbarProps {
 }
 
 const NAV_LINKS = [
-  { label: 'Work', hash: '#work' },
-  { label: 'Experience', hash: '#experience' },
-  { label: 'Skills', hash: '#skills' },
-  { label: 'Education', hash: '#education' },
-  { label: 'About', hash: '#about' },
-  { label: 'FAQ', hash: '#faq' },
-  { label: 'Contact', hash: '#contact' },
+  { label: 'Work', path: '/work' },
+  { label: 'Experience', path: '/experience' },
+  { label: 'Skills', path: '/skills' },
+  { label: 'Education', path: '/education' },
+  { label: 'About', path: '/about' },
+  { label: 'FAQ', path: '/faq' },
+  { label: 'Contact', path: '/contact' },
 ] as const;
+
+const linkClass = (isActive: boolean) =>
+  `px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-150 ${
+    isActive
+      ? 'bg-white text-black font-semibold shadow-sm'
+      : 'text-zinc-400 hover:text-white hover:bg-white/[0.04]'
+  }`;
+
+const mobileLinkClass = (isActive: boolean) =>
+  `px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+    isActive
+      ? 'bg-white text-black font-semibold'
+      : 'text-zinc-300 hover:bg-white/[0.06] hover:text-white'
+  }`;
 
 export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,7 +39,6 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   const [headerHeight, setHeaderHeight] = useState(60);
   const drawerRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -80,38 +93,12 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [mobileMenuOpen]);
 
-  useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [mobileMenuOpen]);
-
   useBodyScrollLock(mobileMenuOpen);
 
-  const handleSectionNav = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    hash: string
-  ) => {
-    e.preventDefault();
+  // Close mobile menu on route change
+  useEffect(() => {
     setMobileMenuOpen(false);
-    if (location.pathname !== '/') {
-      navigate(`/${hash}`);
-    } else {
-      const id = hash.replace('#', '');
-      const el = document.getElementById(id);
-      if (el) {
-        const offset = 80;
-        const top = el.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-        window.history.replaceState(null, '', `/${hash}`);
-      }
-    }
-  };
+  }, [location.pathname]);
 
   return (
     <header
@@ -127,13 +114,6 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           {/* Logo / Monogram */}
           <Link
             to="/"
-            onClick={(e) => {
-              if (location.pathname === '/') {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                window.history.replaceState(null, '', '/');
-              }
-            }}
             className="group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-lg p-1"
             aria-label="Suraj Bhan Pratap Singh Home"
           >
@@ -150,41 +130,32 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation — single pill containing all links + Resume */}
           <nav className="hidden md:flex items-center gap-1 bg-[#0A0A0C]/80 border border-white/[0.08] px-3 py-1.5 rounded-full backdrop-blur-md">
             {NAV_LINKS.map((link) => {
-              const isActive = activeSection === link.hash.substring(1);
+              const isActive = activeSection === link.path.replace('/', '');
               return (
-                <a
-                  key={link.hash}
-                  href={`/${link.hash}`}
-                  onClick={(e) => handleSectionNav(e, link.hash)}
+                <Link
+                  key={link.path}
+                  to={link.path}
                   aria-current={isActive ? 'page' : undefined}
-                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-150 ${
-                    isActive
-                      ? 'bg-white text-black font-semibold shadow-sm'
-                      : 'text-zinc-400 hover:text-white hover:bg-white/[0.04]'
-                  }`}
+                  className={linkClass(isActive)}
                 >
                   {link.label}
-                </a>
+                </Link>
               );
             })}
-          </nav>
-
-          {/* Right Action / Resume Gradient Pill — direct PDF open */}
-          <div className="hidden md:flex items-center gap-3">
             <a
               href={PERSONAL_INFO.resumePdfUrl}
               target="_blank"
               rel="noopener noreferrer"
-              download="Suraj_Bhan_Pratap_Singh_Resume.pdf"
-              className="inline-flex items-center justify-center whitespace-nowrap transition-all disabled:pointer-events-none disabled:opacity-50 outline-none focus-visible:ring-2 focus-visible:ring-white h-8 gap-1.5 px-3 rounded-full text-sm font-semibold text-white shadow-lg shadow-primary/20 hover:brightness-110 bg-gradient-to-r from-violet-500 to-fuchsia-500"
+              aria-label="Open resume PDF in a new tab"
+              className="px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-150 text-zinc-400 hover:text-white hover:bg-white/[0.04] inline-flex items-center gap-1.5"
             >
-              <FileText className="w-3.5 h-3.5" />
+              <FileText className="w-3 h-3" />
               <span>Resume</span>
             </a>
-          </div>
+          </nav>
 
           {/* Mobile Menu Button */}
           <button
@@ -199,11 +170,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer Menu — solid dark black background */}
       {mobileMenuOpen && (
         <div
           ref={drawerRef}
-          className="md:hidden fixed inset-x-0 glass border-b border-white/[0.1] px-6 py-6 transition-all animate-fade-in shadow-2xl max-h-[calc(100vh-60px)] overflow-y-auto"
+          className="md:hidden fixed inset-x-0 bg-[#050505] border-b border-white/[0.1] px-6 py-6 transition-all animate-fade-in shadow-2xl max-h-[calc(100vh-60px)] overflow-y-auto"
           style={{ top: headerHeight }}
           role="dialog"
           aria-modal="true"
@@ -211,21 +182,16 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         >
           <div className="flex flex-col gap-3">
             {NAV_LINKS.map((link) => {
-              const isActive = activeSection === link.hash.substring(1);
+              const isActive = activeSection === link.path.replace('/', '');
               return (
-                <a
-                  key={link.hash}
-                  href={`/${link.hash}`}
-                  onClick={(e) => handleSectionNav(e, link.hash)}
+                <Link
+                  key={link.path}
+                  to={link.path}
                   aria-current={isActive ? 'page' : undefined}
-                  className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                    isActive
-                      ? 'bg-white text-black font-semibold'
-                      : 'text-zinc-300 hover:bg-white/[0.06] hover:text-white'
-                  }`}
+                  className={mobileLinkClass(isActive)}
                 >
                   {link.label}
-                </a>
+                </Link>
               );
             })}
             <div className="pt-4 mt-2 border-t border-white/[0.08] flex flex-col gap-2.5">
@@ -233,9 +199,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                 href={PERSONAL_INFO.resumePdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
-                download="Suraj_Bhan_Pratap_Singh_Resume.pdf"
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-semibold text-white shadow-lg shadow-primary/20 bg-gradient-to-r from-violet-500 to-fuchsia-500"
+                aria-label="Open resume PDF in a new tab"
+                className="px-4 py-3 rounded-lg text-sm font-medium text-zinc-300 hover:bg-white/[0.06] hover:text-white transition-colors inline-flex items-center gap-2"
               >
                 <FileText className="w-4 h-4" />
                 <span>View Resume</span>
