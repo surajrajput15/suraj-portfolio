@@ -14,34 +14,28 @@ export const HeroSection: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center pt-20 sm:pt-28 pb-12 sm:pb-16 overflow-hidden"
+      className="relative min-h-[600px] flex items-center justify-center pt-4 sm:pt-8 pb-6 sm:pb-8 overflow-hidden"
     >
       {/* Background subtle grid pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
 
-      {/* Animated decorative orbs */}
+      {/* Animated decorative orb */}
       <div
         aria-hidden="true"
-        className="absolute top-1/4 -left-32 w-[420px] h-[420px] rounded-full bg-violet-600/10 blur-[130px] pointer-events-none animate-float-slow"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute top-1/3 -right-40 w-[400px] h-[400px] rounded-full bg-fuchsia-500/10 blur-[140px] pointer-events-none animate-pulse-glow"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute bottom-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-white/[0.02] blur-[120px] rounded-full pointer-events-none"
+        className="absolute top-1/3 -right-40 w-[300px] h-[300px] rounded-full bg-violet-600/10 blur-[80px] pointer-events-none animate-float-slow"
       />
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="flex flex-col items-center text-center gap-6 sm:gap-8">
-          {/* Profile Photo on Top */}
+        <div className="flex flex-col items-center text-center gap-4 sm:gap-6">
+          {/* Profile Photo */}
           <Reveal>
-            <div className="flex justify-center">
-              <div className="relative w-32 h-32 xs:w-36 xs:h-36 sm:w-44 sm:h-44 md:w-48 md:h-48">
-                <div className="absolute -inset-4 sm:-inset-6 rounded-full bg-gradient-to-br from-violet-500/30 via-fuchsia-500/20 to-violet-700/30 blur-2xl opacity-70 pointer-events-none animate-pulse-glow" />
+            <div className="flex justify-center mt-8">
+              <div className="relative w-24 h-24 xs:w-24 xs:h-24 sm:w-32 sm:h-32 md:w-36 md:h-36">
                 <div
-                  className="absolute inset-0 rounded-full p-[3px] bg-gradient-to-tr from-violet-400 via-fuchsia-400 to-violet-600 shadow-[0_0_40px_rgba(167,139,250,0.35)]"
+                  className="absolute -inset-4 sm:-inset-6 rounded-full bg-gradient-to-br from-violet-500/30 via-fuchsia-500/20 to-violet-700/30 blur-2xl opacity-70 pointer-events-none animate-pulse-glow"
+                />
+                <div
+                  className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-tr from-violet-400 via-fuchsia-400 to-violet-600 shadow-[0_0_40px_rgba(167,139,250,0.35)]"
                   aria-hidden="true"
                 >
                   <div className="w-full h-full rounded-full bg-[#0A0A0C]" />
@@ -49,19 +43,19 @@ export const HeroSection: React.FC = () => {
                 <img
                   src="/profile.jpg"
                   alt={`${PERSONAL_INFO.name} — ${PERSONAL_INFO.positioning}`}
-                  className="absolute inset-[6px] w-[calc(100%-12px)] h-[calc(100%-12px)] rounded-full object-cover object-[center_20%]"
+                  className="absolute inset-[4px] w-[calc(100%-8px)] h-[calc(100%-8px)] rounded-full object-cover object-[center_20%]"
                   loading="eager"
                   decoding="async"
                   fetchPriority="high"
-                  width={192}
-                  height={192}
+                  width={128}
+                  height={128}
                 />
               </div>
             </div>
           </Reveal>
 
           {/* Identity & Content */}
-          <div className="flex flex-col items-center space-y-5 sm:space-y-6 max-w-3xl">
+          <div className="flex flex-col items-center space-y-4 sm:space-y-5 max-w-3xl">
             {/* Availability Badge */}
             <Reveal delay={80}>
               <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#111115] border border-white/[0.1] text-[10px] sm:text-xs font-mono text-zinc-300">
@@ -73,28 +67,45 @@ export const HeroSection: React.FC = () => {
               </div>
             </Reveal>
 
-            {/* Name & Title */}
-            <Reveal delay={160} className="space-y-2">
-              <p className="font-mono text-[10px] sm:text-sm uppercase tracking-widest text-zinc-400 font-medium">
-                {PERSONAL_INFO.name}
-              </p>
-              <h1 className="font-display text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.08] text-balance">
+            {/* Intro & Name */}
+            <div className="flex flex-col items-center space-y-2 text-center">
+              <Reveal delay={160}>
+                <p className="font-display font-bold text-zinc-100 text-lg sm:text-xl tracking-normal">
+                  Hi, I'm
+                </p>
+              </Reveal>
+
+              <Reveal delay={240}>
+                <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-[0.95] text-white leading-[1.05] text-balance">
+                  {PERSONAL_INFO.name}
+                </h1>
+              </Reveal>
+            </div>
+
+            {/* Headline / Role */}
+            <Reveal delay={320}>
+              <p className="font-mono text-zinc-400 text-base sm:text-lg font-medium tracking-[0.15]">
                 {PERSONAL_INFO.positioning}
-              </h1>
+              </p>
             </Reveal>
 
             {/* Professional Narrative */}
-            <Reveal delay={240}>
+            <Reveal delay={400}>
               <p className="text-sm sm:text-base md:text-lg text-zinc-400 max-w-xl sm:max-w-2xl font-normal leading-relaxed text-pretty">
-                Building production-oriented web applications and AI-powered products. Focused on
-                full-stack architecture with React, Next.js, Node.js, PostgreSQL, MongoDB, and
-                authenticated AI workflows with Groq and Gemini.
+                Building production-ready web applications with AI-powered workflows.
+              </p>
+            </Reveal>
+
+            {/* Tech Stack */}
+            <Reveal delay={480}>
+              <p className="mt-3 flex gap-2 text-zinc-400 text-xs sm:text-sm">
+                React · Next.js · Node.js · TypeScript · MongoDB
               </p>
             </Reveal>
 
             {/* Core Action CTAs */}
-            <Reveal delay={320}>
-              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-3.5 pt-2">
+            <Reveal delay={560}>
+              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-3.5 pt-3">
                 <button
                   type="button"
                   onClick={handleExploreWork}
@@ -125,8 +136,8 @@ export const HeroSection: React.FC = () => {
               </div>
             </Reveal>
 
-            {/* Scroll indicator — directly below CTAs */}
-            <div className="flex flex-col items-center gap-1 text-zinc-500 pt-4">
+            {/* Scroll indicator */}
+            <div className="flex flex-col items-center gap-1 text-zinc-500 mt-8">
               <span className="text-[11px] sm:text-[10px] font-mono uppercase tracking-widest">
                 Scroll
               </span>
