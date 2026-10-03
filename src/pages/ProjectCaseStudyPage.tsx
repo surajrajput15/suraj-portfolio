@@ -14,6 +14,7 @@ import { SectionHeader } from '../components/ui/SectionHeader';
 import { Reveal } from '../components/ui/Reveal';
 import { ResponsiveImage } from '../components/ui/ResponsiveImage';
 import { GitHubIcon } from '../components/ui/Icons';
+import { recordAction } from '../utils/siteMetrics';
 
 const ALL_PROJECTS = [...FEATURED_PROJECTS, ...ADDITIONAL_PROJECTS];
 
@@ -98,6 +99,7 @@ export const ProjectCaseStudyPage: React.FC = () => {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => recordAction(`Clicked Project Live Demo: ${project.title}`, { project: project.title, url: project.liveUrl })}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-black text-xs font-semibold hover:bg-zinc-200 transition-all shadow-md active:scale-[0.98]"
                 >
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -108,6 +110,7 @@ export const ProjectCaseStudyPage: React.FC = () => {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => recordAction(`Clicked Project Source Code: ${project.title}`, { project: project.title, url: project.githubUrl })}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#111115] hover:bg-[#18181F] text-white text-xs font-medium border border-white/[0.12] hover:border-white/[0.24] transition-all active:scale-[0.98]"
               >
                 <GitHubIcon className="w-3.5 h-3.5 text-zinc-400" />

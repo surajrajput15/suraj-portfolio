@@ -3,6 +3,7 @@ import { Menu, X, FileText } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 import { useBodyScrollLock } from '../../hooks/useBodyScrollLock';
+import { recordAction } from '../../utils/siteMetrics';
 
 interface NavbarProps {
   activeSection: string;
@@ -150,6 +151,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Open resume PDF in a new tab"
+              onClick={() => recordAction('Viewed / Downloaded Resume (Navbar)')}
               className="px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-150 text-zinc-400 hover:text-white hover:bg-white/[0.04] inline-flex items-center gap-1.5"
             >
               <FileText className="w-3 h-3" />
@@ -200,6 +202,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Open resume PDF in a new tab"
+                onClick={() => {
+                  recordAction('Viewed / Downloaded Resume (Mobile Menu)');
+                  setMobileMenuOpen(false);
+                }}
                 className="px-4 py-3 rounded-lg text-sm font-medium text-zinc-300 hover:bg-white/[0.06] hover:text-white transition-colors inline-flex items-center gap-2"
               >
                 <FileText className="w-4 h-4" />

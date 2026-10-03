@@ -15,6 +15,7 @@ import { ContactSection } from './components/sections/ContactSection';
 import { ProjectCaseStudyPage } from './pages/ProjectCaseStudyPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { useActiveSection } from './hooks/useActiveSection';
+import { useMetrics } from './hooks/useMetrics';
 import {
   useScrollToSegment,
   ALLOWED_SECTIONS,
@@ -65,6 +66,7 @@ export function App() {
 }
 
 function AppShell() {
+  useMetrics();
   const location = useLocation();
   const firstSegment = location.pathname.replace(/^\//, '').split('/')[0] ?? '';
   const isHome =

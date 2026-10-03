@@ -3,11 +3,13 @@ import { ArrowDown, FileText, ChevronDown } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 import { Reveal } from '../ui/Reveal';
+import { recordAction } from '../../utils/siteMetrics';
 
 export const HeroSection: React.FC = () => {
   const navigate = useNavigate();
 
   const handleExploreWork = () => {
+    recordAction('Clicked Explore Work (Hero CTA)');
     navigate('/work');
   };
 
@@ -124,6 +126,7 @@ export const HeroSection: React.FC = () => {
                   href={PERSONAL_INFO.resumePdfUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => recordAction('Viewed / Downloaded Resume (Hero)')}
                   className="inline-flex items-center justify-center gap-2.5 px-5 py-3 min-h-[48px] rounded-xl bg-[#111115] hover:bg-[#18181F] text-white font-medium text-sm border border-white/[0.12] hover:border-white/[0.24] transition-all active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] focus:outline-none whitespace-nowrap"
                 >
                   <FileText

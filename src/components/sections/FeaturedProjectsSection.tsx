@@ -5,6 +5,7 @@ import { ResponsiveImage } from '../ui/ResponsiveImage';
 import { FEATURED_PROJECTS } from '../../data/portfolioData';
 import { Reveal } from '../ui/Reveal';
 import { SectionHeader } from '../ui/SectionHeader';
+import { recordAction } from '../../utils/siteMetrics';
 
 export const FeaturedProjectsSection: React.FC = () => {
   return (
@@ -33,6 +34,7 @@ export const FeaturedProjectsSection: React.FC = () => {
             <Reveal key={project.id} delay={idx * 80}>
               <Link
                 to={`/projects/${project.id}`}
+                onClick={() => recordAction(`Opened Case Study: ${project.title}`, { project: project.title, id: project.id })}
                 className="group block rounded-2xl bg-[#09090C] border border-white/[0.08] hover:border-white/[0.24] transition-all overflow-hidden hover:shadow-[0_0_60px_hsl(262_83%_58%_/0.1)] hover:-translate-y-0.5"
               >
                 {/* Project image */}

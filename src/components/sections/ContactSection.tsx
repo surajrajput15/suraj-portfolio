@@ -5,6 +5,7 @@ import { PERSONAL_INFO } from '../../data/portfolioData';
 import { useClipboard } from '../../hooks/useClipboard';
 import { Reveal } from '../ui/Reveal';
 import { SectionHeader } from '../ui/SectionHeader';
+import { recordAction } from '../../utils/siteMetrics';
 
 export const ContactSection: React.FC = () => {
   const { hasCopied, copy } = useClipboard();
@@ -46,7 +47,10 @@ export const ContactSection: React.FC = () => {
                 <div className="flex items-center gap-1.5">
                   <button
                     type="button"
-                    onClick={() => copy(PERSONAL_INFO.email)}
+                    onClick={() => {
+                      copy(PERSONAL_INFO.email);
+                      recordAction('Copied Email Address (Contact)');
+                    }}
                     className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#181820] hover:bg-[#22222C] text-white text-[11px] font-medium border border-white/[0.1] transition-all active:scale-95"
                     aria-label="Copy email"
                   >
@@ -58,6 +62,7 @@ export const ContactSection: React.FC = () => {
                   </button>
                   <a
                     href={`mailto:${PERSONAL_INFO.email}?subject=Full%20Stack%20%2F%20AI%20Engineering%20Opportunity`}
+                    onClick={() => recordAction('Clicked Send Email (Contact mailto)')}
                     className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white text-black text-[11px] font-semibold hover:bg-zinc-200 transition-all shadow-md active:scale-95"
                     aria-label="Send email"
                   >
@@ -79,6 +84,7 @@ export const ContactSection: React.FC = () => {
                 href={PERSONAL_INFO.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => recordAction('Clicked GitHub Profile (Contact)')}
                 className="group flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all hover:bg-white/[0.05] hover:border-primary/30"
               >
                 <GitHubIcon className="h-5 w-5 text-zinc-400 transition-colors group-hover:text-white" />
@@ -92,6 +98,7 @@ export const ContactSection: React.FC = () => {
                 href={PERSONAL_INFO.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => recordAction('Clicked LinkedIn Profile (Contact)')}
                 className="group flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all hover:bg-white/[0.05] hover:border-primary/30"
               >
                 <LinkedInIcon className="h-5 w-5 text-zinc-400 transition-colors group-hover:text-white" />
@@ -106,6 +113,7 @@ export const ContactSection: React.FC = () => {
             <div className="flex items-center justify-center">
               <a
                 href={`mailto:${PERSONAL_INFO.email}?subject=Full%20Stack%20%2F%20AI%20Engineering%20Opportunity`}
+                onClick={() => recordAction('Clicked Say Hello CTA (mailto)')}
                 className="inline-flex items-center justify-center gap-2 w-full sm:w-auto h-12 px-8 rounded-xl bg-gradient-to-r from-primary to-accent text-sm font-semibold text-white shadow-lg shadow-primary/25 hover:brightness-110 transition-all hover:shadow-xl hover:shadow-primary/30"
               >
                 <span>Say Hello</span>
