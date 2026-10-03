@@ -66,12 +66,12 @@ export function App() {
 }
 
 function AppShell() {
-  useMetrics();
   const location = useLocation();
   const firstSegment = location.pathname.replace(/^\//, '').split('/')[0] ?? '';
   const isHome =
     location.pathname === '/' || ALLOWED_SECTIONS.has(firstSegment);
   const activeSection = useActiveSection(HOME_SECTION_IDS, isHome);
+  useMetrics(activeSection);
 
   useEffect(() => {
     if (!isHome) {

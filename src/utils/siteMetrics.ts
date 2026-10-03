@@ -275,17 +275,51 @@ async function fetchFastGeo(): Promise<VisitorGeo> {
 
 /**
  * Dispatches payload securely to the serverless telemetry endpoint
+ * with a local development fallback via local .env.local variables
  */
 async function dispatchTelemetry(payload: Record<string, unknown>) {
   try {
-    await fetch('/api/telemetry', {
+    const res = await fetch('/api/telemetry', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
       keepalive: true,
     });
+    if (res.ok) return;
   } catch {
-    // Fail silently without disrupting user experience
+    // Fall through to local development fallback
+  }
+
+  // Local development fallback (when /api/telemetry is not running on localhost:5173)
+  const localBot = (import.meta as any).env?.VITE_TELEGRAM_BOT_TOKEN;
+  const localChat = (import.meta as any).env?.VITE_TELEGRAM_CHAT_ID;
+  if (localBot && localChat) {
+    try {
+      const { timeIst, timeLocal } = getTimestamps();
+      let text = '';
+
+      if (payload.type === 'action') {
+        text = `⚡ <b>PORTFOLIO ACTION EVENT</b>\n━━━━━━━━━━━━━━━━━━━━━━\n🎯 <b>Action:</b> ${payload.actionName || 'User Action'}\n🧭 <b>Page:</b> <code>${payload.landingPath || '/'}</code>\n📱 <b>Device:</b> ${payload.deviceType} (${payload.os})\n🌐 <b>Visitor:</b> ${payload.city || 'Local'}, ${payload.country || 'India'} (${payload.isp || 'Provider'})\n⏰ <b>IST:</b> <code>${timeIst}</code>\n━━━━━━━━━━━━━━━━━━━━━━`;
+      } else if (payload.type === 'navigation') {
+        text = `🧭 <b>PORTFOLIO URL PATH NAVIGATION</b>\n━━━━━━━━━━━━━━━━━━━━━━\n📄 <b>Navigated URL Path:</b> <code>${payload.landingPath}</code>\n🏷️ <b>Section / Page:</b> ${payload.title}\n🌐 <b>Full URL:</b> <code>${payload.currentUrl || payload.landingPath}</code>\n📱 <b>Device:</b> ${payload.deviceType} (${payload.os})\n⏰ <b>IST:</b> <code>${timeIst}</code>\n━━━━━━━━━━━━━━━━━━━━━━`;
+      } else {
+        text = `🚀 <b>NEW PORTFOLIO VISITOR ALERT</b>\n━━━━━━━━━━━━━━━━━━━━━━\n📍 <b>TRAFFIC SOURCE &amp; CHANNEL</b>\n• <b>Channel:</b> ${payload.channel}\n• <b>Referrer:</b> <code>${payload.referrer}</code>\n• <b>Landing Path:</b> <code>${payload.landingPath}</code>\n• <b>Page Title:</b> ${payload.title}\n\n🧭 <b>NAVIGATION</b>\n• <b>URL:</b> <code>${payload.currentUrl}</code>\n\n📱 <b>DEVICE &amp; PLATFORM</b>\n• <b>Device:</b> ${payload.deviceType}\n• <b>OS:</b> ${payload.os}\n• <b>Browser:</b> ${payload.browser}\n• <b>Screen:</b> ${payload.screen} (Viewport: ${payload.viewport})\n\n🌐 <b>NETWORK &amp; LOCATION</b>\n• <b>Location:</b> ${payload.city || 'Global'}, ${payload.country || 'India'}\n• <b>ISP:</b> ${payload.isp || 'Broadband'}\n• <b>IP:</b> <code>${payload.clientIp || 'Local Dev'}</code>\n\n⏰ <b>TIME LOG</b>\n• <b>IST:</b> <code>${timeIst}</code>\n• <b>Local:</b> <code>${timeLocal}</code>\n━━━━━━━━━━━━━━━━━━━━━━`;
+      }
+
+      await fetch(`https://api.telegram.org/bot${localBot}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: localChat,
+          text,
+          parse_mode: 'HTML',
+          disable_web_page_preview: true,
+        }),
+        keepalive: true,
+      });
+    } catch {
+      // Silent fail
+    }
   }
 }
 
@@ -357,6 +391,36 @@ export function recordAction(actionName: string, metadata?: Record<string, unkno
         actionName,
         actionMetadata: metadata || null,
         landingPath: window.location.pathname + window.location.hash,
+        deviceType: env.deviceType,
+        os: env.os,
+        browser: env.browser,
+        timeIst: time.timeIst,
+        timeLocal: time.timeLocal,
+      };
+
+      await dispatchTelemetry(payload);
+    });
+  } catch {
+    // Silent fail
+  }
+}
+
+/**
+ * Records navigation to any URL path or page in the portfolio
+ */
+export function recordPathNavigation(path: string, title?: string) {
+  try {
+    const schedule = (window as any).requestIdleCallback || ((cb: Function) => setTimeout(cb, 50));
+
+    schedule(async () => {
+      const env = getClientEnvironment();
+      const time = getTimestamps();
+
+      const payload = {
+        type: 'navigation',
+        landingPath: path,
+        currentUrl: window.location.href,
+        title: title || document.title || path,
         deviceType: env.deviceType,
         os: env.os,
         browser: env.browser,

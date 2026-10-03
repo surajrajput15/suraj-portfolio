@@ -112,10 +112,11 @@ export default async function handler(req: any, res: any) {
 ${actionMetadata ? `<pre>${escapeHtml(JSON.stringify(actionMetadata, null, 2))}</pre>` : ''}
 ━━━━━━━━━━━━━━━━━━━━━━`;
     } else if (type === 'navigation') {
-      message = `🧭 <b>PORTFOLIO PAGE TRANSITION</b>
+      message = `🧭 <b>PORTFOLIO URL PATH NAVIGATION</b>
 ━━━━━━━━━━━━━━━━━━━━━━
-📄 <b>Route:</b> <code>${escapeHtml(landingPath)}</code>
-🏷️ <b>Title:</b> ${escapeHtml(title)}
+📄 <b>Navigated URL Path:</b> <code>${escapeHtml(landingPath)}</code>
+🏷️ <b>Section / Page:</b> ${escapeHtml(title)}
+🌐 <b>Full URL:</b> <code>${escapeHtml(currentUrl || landingPath)}</code>
 📱 <b>Device:</b> ${escapeHtml(deviceType)} (${escapeHtml(os)})
 🌐 <b>Visitor:</b> ${flagEmoji} ${escapeHtml(finalCity)}, ${escapeHtml(finalCountry)} (${escapeHtml(finalIsp)})
 ⏰ <b>IST:</b> <code>${escapeHtml(timeIst)}</code>
