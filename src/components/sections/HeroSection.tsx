@@ -16,7 +16,7 @@ export const HeroSection: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[600px] flex items-center justify-center pt-4 sm:pt-8 pb-6 sm:pb-8 overflow-hidden"
+      className="relative min-h-[calc(100svh-1rem)] flex flex-col justify-center pt-24 sm:pt-28 md:pt-32 pb-10 sm:pb-14 overflow-hidden"
     >
       {/* Background subtle grid pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
@@ -27,11 +27,11 @@ export const HeroSection: React.FC = () => {
         className="absolute top-1/3 -right-40 w-[300px] h-[300px] rounded-full bg-violet-600/10 blur-[80px] pointer-events-none animate-float-slow"
       />
 
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="flex flex-col items-center text-center gap-4 sm:gap-6">
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
+        <div className="flex flex-col items-center text-center gap-3 sm:gap-6">
           {/* Profile Photo */}
           <Reveal>
-            <div className="flex justify-center mt-8">
+            <div className="flex justify-center">
               <div className="relative w-24 h-24 xs:w-24 xs:h-24 sm:w-32 sm:h-32 md:w-36 md:h-36">
                 <div
                   className="absolute -inset-4 sm:-inset-6 rounded-full bg-gradient-to-br from-violet-500/30 via-fuchsia-500/20 to-violet-700/30 blur-2xl opacity-70 pointer-events-none animate-pulse-glow"
@@ -78,7 +78,7 @@ export const HeroSection: React.FC = () => {
               </Reveal>
 
               <Reveal delay={240}>
-                <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-[0.95] text-white leading-[1.05] text-balance">
+                <h1 className="font-display text-3xl xs:text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.1] text-balance">
                   {PERSONAL_INFO.name}
                 </h1>
               </Reveal>

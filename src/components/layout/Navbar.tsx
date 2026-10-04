@@ -106,8 +106,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
       ref={headerRef}
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 animate-navbar-mount ${
         isScrolled
-          ? 'bg-[#050505]/70 backdrop-blur-xl border-b border-white/[0.08] py-3.5 shadow-2xl'
-          : 'bg-transparent py-5'
+          ? 'bg-[#050505]/80 backdrop-blur-xl border-b border-white/[0.08] py-3 sm:py-3.5 shadow-2xl'
+          : 'bg-[#050505]/50 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none border-b border-white/[0.04] sm:border-transparent py-3 sm:py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -115,17 +115,17 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           {/* Logo / Monogram */}
           <Link
             to="/"
-            className="group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-lg p-1"
+            className="group flex items-center gap-2.5 sm:gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-lg p-1 min-w-0"
             aria-label="Suraj Bhan Pratap Singh Home"
           >
-            <div className="w-8 h-8 rounded-lg bg-[#111115] border border-white/[0.12] flex items-center justify-center font-display font-bold text-sm text-white group-hover:border-white/[0.28] transition-colors">
+            <div className="w-8 h-8 shrink-0 rounded-lg bg-[#111115] border border-white/[0.12] flex items-center justify-center font-display font-bold text-sm text-white group-hover:border-white/[0.28] transition-colors">
               SB
             </div>
-            <div className="flex flex-col">
-              <span className="font-display text-sm font-semibold tracking-tight text-white group-hover:text-zinc-200 transition-colors">
+            <div className="flex flex-col min-w-0">
+              <span className="font-display text-xs sm:text-sm font-semibold tracking-tight text-white group-hover:text-zinc-200 transition-colors truncate max-w-[170px] xs:max-w-none">
                 {PERSONAL_INFO.name}
               </span>
-              <span className="text-[11px] font-mono text-zinc-400">
+              <span className="text-[10px] sm:text-[11px] font-mono text-zinc-400 truncate">
                 Full-Stack Developer
               </span>
             </div>
