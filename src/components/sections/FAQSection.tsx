@@ -86,8 +86,8 @@ const FAQS: FAQItem[] = [
     answer: (
       <>
         Email is the fastest channel:{' '}
-        <a href="mailto:surajdona2005@gmail.com" className="text-primary hover:underline">
-          surajdona2005@gmail.com
+        <a href="mailto:surajbhanpratap15@gmail.com" className="text-primary hover:underline">
+          surajbhanpratap15@gmail.com
         </a>
         . You can also reach me on{' '}
         <a

@@ -7,7 +7,7 @@ import type {
 export const PERSONAL_INFO = {
   name: 'Suraj Bhan Pratap Singh',
   positioning: 'Full-Stack Developer',
-  email: 'surajdona2005@gmail.com',
+  email: 'surajbhanpratap15@gmail.com',
   phone: '+917209690361',
   location: 'Jaipur, Rajasthan',
   status: 'Available for Opportunities',
